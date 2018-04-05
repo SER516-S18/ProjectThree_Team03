@@ -361,17 +361,18 @@ public class ServerGui extends Thread implements ActionListener {
 	public void run() {
 		while (running) {
 			FaceData faceData = getInputs();
-			JSONObject faceDataJson = new JSONObject(faceData);
-			String jsonResponse = faceDataJson.toString();
-			System.out.println(jsonResponse);
 			try {
 				Thread.sleep((long) (emoIntervalSelected * 1000));
 				timeElapsed += emoIntervalSelected;
 				timeElapsedTextbox.setText(timeElapsed.toString());
 
 			} catch (Exception ex) {
+				
 			}
-			;
+			faceData.setTimeElapsed(timeElapsed);
+			JSONObject faceDataJson = new JSONObject(faceData);
+			String jsonResponse = faceDataJson.toString();
+			System.out.println(jsonResponse);
 		}
 	}
 

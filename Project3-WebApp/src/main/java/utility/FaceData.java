@@ -3,6 +3,7 @@ package utility;
 public class FaceData {
 	FaceExpressionData faceExpressionData;
 	FaceAffectiveData faceAffectiveData;
+	Double timeElapsed = 0.0;
 	
 	public FaceExpressionData getFaceExpressionData() {
 		return faceExpressionData;
@@ -15,8 +16,13 @@ public class FaceData {
 	}
 	public void setFaceAffectiveData(FaceAffectiveData faceAffectiveData) {
 		this.faceAffectiveData = faceAffectiveData;
+	}	
+	public Double getTimeElapsed() {
+		return timeElapsed;
 	}
-	
+	public void setTimeElapsed(Double timeElapsed) {
+		this.timeElapsed = timeElapsed;
+	}
 	public String toString() {
 		return "FaceData{" +
 				"faceExpressionData=" + faceExpressionData +
