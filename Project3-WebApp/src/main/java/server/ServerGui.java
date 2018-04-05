@@ -32,6 +32,7 @@ import javax.swing.border.MatteBorder;
 
 import org.json.JSONObject;
 
+import utility.FaceAffectiveData;
 import utility.FaceData;
 import utility.FaceExpressionData;
 
@@ -399,7 +400,7 @@ public class ServerGui extends Thread implements ActionListener {
 		// System.out.println("LowerFace: " + lowerFace );
 		// System.out.println("LowerFace Value: "+ lowerFaceValue);
 
-		switch (lowerFace) {
+		switch (lowerFace.toString()) {
 		case "Smile":
 			faceExpressionData.setSmile(lowerFaceValue);
 			break;
