@@ -49,28 +49,7 @@ public class DisplayGraph extends JPanel {
       if(rvalues.size()==1){
         list1.add(rvalues.get(0));
       }
-      /*if(rvalues.size()==2){
-          list1.add(rvalues.get(0));
-        list2.add(rvalues.get(1));
-      }
-      if(rvalues.size()==3){
-        list1.add(rvalues.get(0));
-        list2.add(rvalues.get(1));
-        list3.add(rvalues.get(2));
-      }
-      if(rvalues.size()==4){
-        list1.add(rvalues.get(0));
-        list2.add(rvalues.get(1));
-        list3.add(rvalues.get(2));
-        list4.add(rvalues.get(3));
-      }
-      if(rvalues.size()==5){
-        list1.add(rvalues.get(0));
-        list2.add(rvalues.get(1));
-        list3.add(rvalues.get(2));
-        list4.add(rvalues.get(3));
-        list5.add(rvalues.get(4));
-      } */
+     
     }
     
     /**
