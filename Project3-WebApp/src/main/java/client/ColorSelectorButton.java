@@ -19,9 +19,12 @@ public class ColorSelectorButton extends JButton {
 	 */
 	private static final long serialVersionUID = 1L;
 	private Color current;
+	private String name;
 
-    public ColorSelectorButton(Color c) {
+    public ColorSelectorButton(Color c, String name) {
         setSelectedColor(c); 
+        setName(name);
+        this.setText(name);
         addActionListener(new ActionListener() {
    
             public void actionPerformed(ActionEvent arg0) {
@@ -38,13 +41,22 @@ public class ColorSelectorButton extends JButton {
     public void setSelectedColor(Color newColor) {
         setSelectedColor(newColor, true);
     }
+    
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String newName) {
+    		name=newName;
+    		
+    }
 
     public void setSelectedColor(Color newColor, boolean notify) {
 
         if (newColor == null) return;
 
         current = newColor;
-        setIcon(createIcon(current, 16, 16));
+        setIcon(createIcon(current,10, 10));
         repaint();
 
         if (notify) {

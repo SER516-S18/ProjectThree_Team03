@@ -4,6 +4,8 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.GridBagConstraints;
+import java.awt.Insets;
 import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -34,6 +36,7 @@ import javax.websocket.WebSocketContainer;
 import client.ColorSelectorButton.ColorChangedListener;
 
 
+
 /**
  * @SER516 Project3_Team03
  * @Version 1.0
@@ -43,6 +46,13 @@ public class ClientUi {
 
 	private JFrame frame;
 	ClientSocket socket;
+	private ColorSelectorButton interestButton;
+	private ColorSelectorButton engagementButton;
+	private ColorSelectorButton stressButton;
+	private ColorSelectorButton relaxationButton;
+	private ColorSelectorButton excitementButton;
+	private ColorSelectorButton focusButton;
+
 
 	/**
 	 * Launch the application.
@@ -331,11 +341,22 @@ public class ClientUi {
 
 		final JPanel colPanel = new JPanel();
 		colPanel.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
-		ColorSelectorButton colorChooser = new ColorSelectorButton(Color.WHITE);
-
-
+		colPanel.setBounds(350, 30, 343, 311);
 		
-		colorChooser.addColorChangedListener(new ColorChangedListener() {
+		
+		GridBagConstraints gridBagConstraints = new GridBagConstraints();
+		gridBagConstraints.ipadx = 50;
+		gridBagConstraints.ipady = 50;
+		gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
+		gridBagConstraints.insets = new Insets(10, 10, 10, 10);
+		
+		gridBagConstraints.gridx = 1;
+		gridBagConstraints.gridy = 1;
+		
+		
+		
+		interestButton = new ColorSelectorButton(Color.WHITE,ClientConstants.INTEREST);
+		interestButton.addColorChangedListener(new ColorChangedListener() {
 
 		    public void colorChanged(Color newColor) {
 		            // do something with newColor ...
@@ -343,8 +364,84 @@ public class ClientUi {
 		    	
 		    }
 		});
-		colPanel.add(colorChooser);
-		colPanel.setBounds(350, 30, 343, 311);
+		
+		colPanel.add(interestButton,gridBagConstraints);
+		
+		
+
+		
+		gridBagConstraints.gridx = 2;
+		gridBagConstraints.gridy = 1;
+		
+		engagementButton = new ColorSelectorButton(Color.black,ClientConstants.ENGAGEMENT);
+		engagementButton.addColorChangedListener(new ColorChangedListener() {
+
+		    public void colorChanged(Color newColor) {
+		            // do something with newColor ...
+		    		System.out.println("New Color is selected!");
+		    	
+		    }
+		});
+		
+		colPanel.add(engagementButton,gridBagConstraints);
+		
+		
+		
+		
+		gridBagConstraints.gridx = 3;
+		gridBagConstraints.gridy = 1;
+		
+		stressButton = new ColorSelectorButton(Color.black,ClientConstants.STRESS);
+		stressButton.addColorChangedListener(new ColorChangedListener() {
+
+		    public void colorChanged(Color newColor) {
+		            // do something with newColor ...
+		    		System.out.println("New Color is selected!");
+		    	
+		    }
+		});
+		
+		colPanel.add(stressButton,gridBagConstraints);
+		
+		
+		
+		
+		
+		gridBagConstraints.gridx = 1;
+		gridBagConstraints.gridy = 2;
+		
+		relaxationButton = new ColorSelectorButton(Color.black,ClientConstants.RELAXATION);
+		relaxationButton.addColorChangedListener(new ColorChangedListener() {
+
+		    public void colorChanged(Color newColor) {
+		            // do something with newColor ...
+		    		System.out.println("New Color is selected!");
+		    	
+		    }
+		});
+		
+		colPanel.add(relaxationButton,gridBagConstraints);
+		
+		
+		
+		
+		gridBagConstraints.gridx = 1;
+		gridBagConstraints.gridy = 3;
+		
+		excitementButton = new ColorSelectorButton(Color.black,ClientConstants.EXCITEMENT);
+		excitementButton.addColorChangedListener(new ColorChangedListener() {
+
+		    public void colorChanged(Color newColor) {
+		            // do something with newColor ...
+		    		System.out.println("New Color is selected!");
+		    	
+		    }
+		});
+		
+		colPanel.add(excitementButton,gridBagConstraints);
+		
+		
+		
 		affectivePanel.add(colPanel);
 
 		final JLabel perfLabel = new JLabel("    Performance Matrix");
