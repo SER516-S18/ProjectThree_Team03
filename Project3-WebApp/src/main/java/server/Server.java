@@ -8,6 +8,8 @@ import java.net.Socket;
 import java.lang.StringBuilder;
 import java.util.Random;
 
+import server.constants.ServerConstants;
+
 /**
 * Server is an embeddeble socket based server. It accepts one client at a time.
 * A conversation with the server is initiated by opening a request and sending

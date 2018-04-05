@@ -11,7 +11,8 @@ import java.util.List;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.SynchronousQueue;
 
-import server.ServerConstants;
+import client.constants.ClientConstants;
+import server.constants.ServerConstants;
 import utility.Constants;
 
 /**

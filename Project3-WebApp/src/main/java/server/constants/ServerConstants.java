@@ -1,4 +1,4 @@
-package server;
+package server.constants;
 
 import java.awt.Font;
 import utility.Constants;

@@ -33,7 +33,11 @@ import javax.swing.border.LineBorder;
 import javax.websocket.ContainerProvider;
 import javax.websocket.DeploymentException;
 import javax.websocket.WebSocketContainer;
-import client.ColorSelectorButton.ColorChangedListener;
+
+import client.constants.ClientConstants;
+import client.view.ColorSelectorButton;
+import client.view.DisplayGraph;
+import client.view.ColorSelectorButton.ColorChangedListener;
 
 
 
