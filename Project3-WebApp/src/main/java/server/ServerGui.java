@@ -264,7 +264,8 @@ public class ServerGui extends Thread implements ActionListener {
 		sl_panel_Detection.putConstraint(SpringLayout.SOUTH, txtAreaEmoLogs, 474, SpringLayout.NORTH, panel_Detection);
 		sl_panel_Detection.putConstraint(SpringLayout.EAST, txtAreaEmoLogs, 458, SpringLayout.WEST, panel_Detection);
 		txtAreaEmoLogs.setRows(5);
-		txtAreaEmoLogs.setText("Aa");
+		ServerConsole sc = ServerConsole.getInstance();
+		sc.setJtextArea(txtAreaEmoLogs);
 		panel_Detection.add(txtAreaEmoLogs);
 
 		btnClearLogs = new JButton("Clear Logs");
