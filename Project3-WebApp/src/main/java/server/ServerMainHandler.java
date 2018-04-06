@@ -2,6 +2,7 @@ package server;
 
 import org.json.JSONObject;
 
+import server.view.EmoticonComposer;
 import utility.FaceData;
 
 public class ServerMainHandler {

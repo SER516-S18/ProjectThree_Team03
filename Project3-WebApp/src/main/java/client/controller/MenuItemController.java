@@ -13,7 +13,7 @@ import javax.websocket.ContainerProvider;
 import javax.websocket.DeploymentException;
 import javax.websocket.WebSocketContainer;
 
-import client.ClientSocket;
+import client.service.ClientSocket;
 
 public class MenuItemController {
 	ClientSocket socket;
