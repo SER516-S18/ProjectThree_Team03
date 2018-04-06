@@ -153,6 +153,7 @@ public class DetectionPanel extends JPanel {
 		springpanel.putConstraint(SpringLayout.SOUTH, txtAreaEmoLogs, 474, SpringLayout.NORTH, this);
 		springpanel.putConstraint(SpringLayout.EAST, txtAreaEmoLogs, 458, SpringLayout.WEST, this);
 		txtAreaEmoLogs.setRows(5);
+		
 		ServerConsole sc = ServerConsole.getInstance();
 		sc.setJtextArea(txtAreaEmoLogs);
 		this.add(txtAreaEmoLogs);

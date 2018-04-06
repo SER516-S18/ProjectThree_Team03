@@ -9,6 +9,8 @@ import javax.swing.JPanel;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerNumberModel;
 
+import server.InteractiveController;
+
 public class InteractivePanel extends JPanel{
 
 	JSpinner spinnerEmoStateInterval;
@@ -50,6 +52,6 @@ public class InteractivePanel extends JPanel{
 		btnSend.setBounds(337, 58, 119, 25);
 		this.add(btnSend);
 		
-
+		new InteractiveController(btnSend,spinnerEmoStateInterval,chckbxAutoReset);
 	}
 }
