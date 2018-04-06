@@ -1,10 +1,5 @@
 package client.controller;
 
-
-
-
-
-import client.service.ClientSocket;
 import client.view.ClientUi;
 
 public class ClientController {
@@ -17,7 +12,4 @@ public class ClientController {
 		clientui.setVisible(true);
 		
 	}
-	
-	
-
 }

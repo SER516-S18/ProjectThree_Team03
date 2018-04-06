@@ -2,16 +2,13 @@ package client.controller;
 
 import java.awt.BorderLayout;
 import java.awt.Font;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import client.view.DisplayGraph;
 import client.view.ExpressiveView;
 import client.view.FacePaint;
+import utility.FaceExpressionData;
 
 public class ExpressiveController {
 	public ExpressiveView expressiveView;
@@ -47,6 +44,7 @@ public ExpressiveController(){
 	smileGraph = new JPanel();
 	rgtSmirkGraph = new JPanel();
 	laughGraph = new JPanel();
+	FaceExpressionData fed = new FaceExpressionData();
 	
 	
 	expressiveView = new ExpressiveView(facePanel, graphPanel,blinkGraph,rgtWinkGraph,lftWinkGraph,looklftGraph,lookrgtGraph,furrowGraph,
@@ -86,26 +84,19 @@ public ExpressiveController(){
 
 				facePanel.add(f, BorderLayout.CENTER);
 				facePanel.repaint();
-				List<Double> al = new ArrayList<Double>();
-				Random rand = new Random();
-				double pick;
-				for (int j = 0; j < 1; j++) {
-					pick = rand.nextDouble();
-					al.add(pick);
-				}
-				g.addValues(al);
-				g1.addValues(al);
-				g2.addValues(al);
-				g3.addValues(al);
-				g4.addValues(al);
-				g5.addValues(al);
-				g6.addValues(al);
-				g7.addValues(al);
-				g8.addValues(al);
-				g9.addValues(al);
-				g10.addValues(al);
-				g11.addValues(al);
-				// System.out.println(al);
+				double[] v = fed.fetchVectors();
+				g.addValues(v[1]);
+				g1.addValues(v[2]);
+				g2.addValues(v[3]);
+				g3.addValues(v[4]);
+				g4.addValues(v[5]);
+				g5.addValues(v[6]);
+				g6.addValues(v[7]);
+				g7.addValues(v[8]);
+				g8.addValues(v[9]);
+				g9.addValues(v[10]);
+				g10.addValues(v[11]);
+				g11.addValues(v[12]);
 
 				blinkGraph.add(g, BorderLayout.CENTER);
 				blinkGraph.repaint();
@@ -131,8 +122,6 @@ public ExpressiveController(){
 				rgtSmirkGraph.repaint();
 				laughGraph.add(g11, BorderLayout.CENTER);
 				laughGraph.repaint();
-
-				// System.out.println(al);
 				try {
 					Thread.sleep(1000);
 				} catch (InterruptedException e) {

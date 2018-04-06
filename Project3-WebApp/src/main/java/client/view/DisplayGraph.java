@@ -18,8 +18,7 @@ import javax.swing.*;
  */
 public class DisplayGraph extends JPanel {
     private static final long serialVersionUID = 1L;
-    private static final int MAX_VALUE = 3;
-    private static final int WIDTH = 255;
+//    private static final int WIDTH = 255;
     private static final int HEIGHT = 20;
     private static final int BORDER_GAP = 0;
     private static final Stroke GRAPH_STROKE = new BasicStroke(1f);
@@ -31,25 +30,22 @@ public class DisplayGraph extends JPanel {
     private List<Integer> list4 = new ArrayList<Integer>();
     private List<Integer> list5 = new ArrayList<Integer>(); */
     private List<Point> graphPoints1;
-    private List<Point> graphPoints2;
-    private List<Point> graphPoints3;
-    private List<Point> graphPoints4;
-    private List<Point> graphPoints5;
+//    private List<Point> graphPoints2;
+//    private List<Point> graphPoints3;
+//    private List<Point> graphPoints4;
+//    private List<Point> graphPoints5;
     private Stroke oldStroke1;
-    private Stroke oldStroke2;
-    private Stroke oldStroke3;
-    private Stroke oldStroke4;
-    private Stroke oldStroke5;
+//    private Stroke oldStroke2;
+//    private Stroke oldStroke3;
+//    private Stroke oldStroke4;
+//    private Stroke oldStroke5;
 
     /**
      * Splits the values from the received array based on their indices and stores them in separate arrays.
      * @param rvalues contains values received from server after a certain time interval.
      */
-    public void addValues(List<Double> rvalues){
-      if(rvalues.size()==1){
-        list1.add(rvalues.get(0));
-      }
-     
+    public void addValues(double rvalues){
+        list1.add(rvalues);
     }
     
     /**
