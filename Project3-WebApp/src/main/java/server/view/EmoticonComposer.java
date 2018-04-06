@@ -1,4 +1,4 @@
-package server;
+package server.view;
 
 import java.awt.Color;
 import java.awt.EventQueue;
@@ -32,6 +32,7 @@ import javax.swing.border.MatteBorder;
 
 import org.json.JSONObject;
 
+import server.controller.MenuController;
 import utility.FaceAffectiveData;
 import utility.FaceData;
 import utility.FaceExpressionData;

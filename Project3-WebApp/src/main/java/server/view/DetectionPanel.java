@@ -1,4 +1,4 @@
-package server;
+package server.view;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -19,6 +19,8 @@ import javax.swing.SpringLayout;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
+import server.ServerConsole;
+import server.controller.DetectionController;
 import utility.FaceAffectiveData;
 import utility.FaceExpressionData;
 

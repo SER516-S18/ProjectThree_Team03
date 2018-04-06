@@ -1,4 +1,4 @@
-package server;
+package server.service;
 
 import javax.websocket.OnClose;
 import javax.websocket.OnMessage;

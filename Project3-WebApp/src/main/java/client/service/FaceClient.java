@@ -1,4 +1,4 @@
-package client;
+package client.service;
 
 import java.net.URI;
 
