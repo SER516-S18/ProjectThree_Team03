@@ -26,7 +26,6 @@ public class MenuItemController {
 					try {
 						FaceClient.connect(host.getText(), port.getText());
 					} catch (Exception e1) {
-						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					}
 					JOptionPane.showMessageDialog(null, FaceClient.isConnected() ? "Connected to " + host.getText()
