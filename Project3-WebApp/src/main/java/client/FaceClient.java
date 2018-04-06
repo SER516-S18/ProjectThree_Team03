@@ -20,7 +20,9 @@ import javax.websocket.WebSocketContainer;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
- 
+
+import client.view.ClientUi;
+
 import org.glassfish.tyrus.client.ClientManager;
 
 import utility.FaceData;

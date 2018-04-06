@@ -15,4 +15,6 @@ public class ClientConstants extends Constants {
 	public static final String RELAXATION = "Relaxation";
 	public static final String EXCITEMENT = "Excitement";
 	public static final String FOCUS = "Focus";
+	public final static String DISPLAY_LENGTH = "Length:";
+	public final static String SECONDS = "Seconds";
 }

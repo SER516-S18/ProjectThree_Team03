@@ -1,4 +1,4 @@
-package client;
+package client.view;
 
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -57,7 +57,7 @@ public class FacePaint extends JPanel {
 		// FaceExpressionData f = ClientSocket.getInstance().getFaceExpressionData();
 		FaceExpressionData f = new FaceExpressionData();
 		double[] v = f.fetchVectors();
-		System.out.println(v);
+		//System.out.println(v);
 		String direction = "Center";
 		boolean blinkl = true;
 		boolean blinkr = false;
