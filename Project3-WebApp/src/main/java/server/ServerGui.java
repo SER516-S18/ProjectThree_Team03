@@ -64,7 +64,6 @@ public class ServerGui extends Thread implements ActionListener {
 				try {
 					ServerGui window = new ServerGui();
 					window.frame.setVisible(true);
-					FaceServer.start(8000);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

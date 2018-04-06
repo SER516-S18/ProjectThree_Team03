@@ -9,7 +9,7 @@ import javax.swing.JPanel;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerNumberModel;
 
-import server.InteractiveController;
+import server.controller.InteractiveController;
 
 public class InteractivePanel extends JPanel{
 

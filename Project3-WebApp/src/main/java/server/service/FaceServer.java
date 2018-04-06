@@ -26,8 +26,8 @@ public class FaceServer {
 		}
 		FaceServer.server = new Server("localhost", port, "/", null, FaceServer.class);
 		try {
-			FaceServer.server.start();
 			System.out.println("Server Started");
+			FaceServer.server.start();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
