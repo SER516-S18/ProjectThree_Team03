@@ -56,7 +56,7 @@ public class ColorSelectorButton extends JButton {
         if (newColor == null) return;
 
         current = newColor;
-        setIcon(createIcon(current,10, 10));
+        setIcon(createIcon(current,50, 50));
         repaint();
 
         if (notify) {

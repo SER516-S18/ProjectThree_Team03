@@ -35,9 +35,12 @@ import javax.websocket.DeploymentException;
 import javax.websocket.WebSocketContainer;
 
 import client.constants.ClientConstants;
+import client.controller.ChangeColorController;
 import client.view.ColorSelectorButton;
 import client.view.DisplayGraph;
+import client.view.FacePaint;
 import client.view.ColorSelectorButton.ColorChangedListener;
+
 
 
 
@@ -46,10 +49,12 @@ import client.view.ColorSelectorButton.ColorChangedListener;
  * @Version 1.0
  */
 
-public class ClientUi {
+public class ClientUi extends JFrame{
 
-	private JFrame frame;
+	//JFrame frame;
 	ClientSocket socket;
+	
+	
 	private ColorSelectorButton interestButton;
 	private ColorSelectorButton engagementButton;
 	private ColorSelectorButton stressButton;
@@ -58,28 +63,14 @@ public class ClientUi {
 	private ColorSelectorButton focusButton;
 
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String args[]) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					ClientUi window = new ClientUi();
-
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the application.
 	 */
 	public ClientUi() {
 		initialize();
+		this.setBounds(new Rectangle(0, 0, 710, 432));
+		this.getContentPane().setLayout(null);
 	}
 
 	/**
@@ -90,13 +81,11 @@ public class ClientUi {
 		 * try { UIManager.setLookAndFeel(
 		 * "com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel"); } catch(Exception e) { }
 		 */
-		frame = new JFrame();
-		frame.setBounds(new Rectangle(0, 0, 710, 432));
-		frame.getContentPane().setLayout(null);
+
 
 		final JPanel panel = new JPanel();
 		panel.setBounds(0, 0, 698, 402);
-		frame.getContentPane().add(panel);
+		this.getContentPane().add(panel);
 		panel.setLayout(null);
 
 		final JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
@@ -360,89 +349,88 @@ public class ClientUi {
 		
 		
 		interestButton = new ColorSelectorButton(Color.WHITE,ClientConstants.INTEREST);
-		interestButton.addColorChangedListener(new ColorChangedListener() {
-
-		    public void colorChanged(Color newColor) {
-		            // do something with newColor ...
-		    		System.out.println("New Color is selected!");
-		    	
-		    }
-		});
-		
+		new ChangeColorController(interestButton);
 		colPanel.add(interestButton,gridBagConstraints);
-		
-		
-
-		
+			
 		gridBagConstraints.gridx = 2;
 		gridBagConstraints.gridy = 1;
 		
 		engagementButton = new ColorSelectorButton(Color.black,ClientConstants.ENGAGEMENT);
-		engagementButton.addColorChangedListener(new ColorChangedListener() {
+		new ChangeColorController(engagementButton);
 
-		    public void colorChanged(Color newColor) {
-		            // do something with newColor ...
-		    		System.out.println("New Color is selected!");
-		    	
-		    }
-		});
 		
 		colPanel.add(engagementButton,gridBagConstraints);
 		
-		
-		
-		
+	
 		gridBagConstraints.gridx = 3;
 		gridBagConstraints.gridy = 1;
 		
 		stressButton = new ColorSelectorButton(Color.black,ClientConstants.STRESS);
-		stressButton.addColorChangedListener(new ColorChangedListener() {
 
-		    public void colorChanged(Color newColor) {
-		            // do something with newColor ...
-		    		System.out.println("New Color is selected!");
-		    	
-		    }
-		});
 		
+		new ChangeColorController(engagementButton);
 		colPanel.add(stressButton,gridBagConstraints);
 		
 		
 		
 		
 		
-		gridBagConstraints.gridx = 1;
+		gridBagConstraints.gridx = 2;
 		gridBagConstraints.gridy = 2;
 		
 		relaxationButton = new ColorSelectorButton(Color.black,ClientConstants.RELAXATION);
-		relaxationButton.addColorChangedListener(new ColorChangedListener() {
 
-		    public void colorChanged(Color newColor) {
-		            // do something with newColor ...
-		    		System.out.println("New Color is selected!");
-		    	
-		    }
-		});
+		new ChangeColorController(relaxationButton);
 		
 		colPanel.add(relaxationButton,gridBagConstraints);
 		
 		
 		
 		
-		gridBagConstraints.gridx = 1;
-		gridBagConstraints.gridy = 3;
+		gridBagConstraints.gridx = 3;
+		gridBagConstraints.gridy = 2;
 		
 		excitementButton = new ColorSelectorButton(Color.black,ClientConstants.EXCITEMENT);
-		excitementButton.addColorChangedListener(new ColorChangedListener() {
 
-		    public void colorChanged(Color newColor) {
-		            // do something with newColor ...
-		    		System.out.println("New Color is selected!");
-		    	
-		    }
-		});
-		
+		new ChangeColorController(excitementButton);
 		colPanel.add(excitementButton,gridBagConstraints);
+		
+		
+		
+		
+		
+		gridBagConstraints.gridx = 2;
+		gridBagConstraints.gridy = 2;
+		
+		focusButton = new ColorSelectorButton(Color.black,ClientConstants.FOCUS);
+
+		new ChangeColorController(focusButton);
+		colPanel.add(focusButton,gridBagConstraints);
+		
+		
+		
+//		
+//		gridBagConstraints.insets = new Insets(10, 5, 10, 5);
+//		gridBagConstraints.gridx = 1;
+//		gridBagConstraints.gridy = 3;
+//		displaylengthLabel = new JLabel(ClientConstants.DISPLAY_LENGTH);
+//		displaylengthLabel.setHorizontalTextPosition(SwingConstants.RIGHT);
+//		displaylengthLabel.setHorizontalAlignment(SwingConstants.RIGHT);
+//		displaylengthLabel.setFont(FONT);
+//		mainPanel.add(displaylengthLabel, gridBagConstraints);
+//
+//		gridBagConstraints.gridx = 2;
+//		gridBagConstraints.gridy = 3;
+//		displayLengthField = new NumberTextField("" + performanceMetricModel.getDisplayLength());
+//		displayLengthField.setBackground(LIGHTPINK);
+//		displayLengthField.setHorizontalAlignment(SwingConstants.CENTER);
+//		displayLengthField.setFont(FONT);
+//		displayLengthField.setBorder(new LineBorder(BLACK));
+//		displayLengthField.setColumns(10);
+//		mainPanel.add(displayLengthField, gridBagConstraints);
+//		
+		
+		
 		
 		
 		
