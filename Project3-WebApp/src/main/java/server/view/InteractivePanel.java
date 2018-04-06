@@ -1,4 +1,4 @@
-package server;
+package server.view;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;

@@ -13,7 +13,7 @@ public class ExpressiveView extends JPanel{
 	
 
 
-	public ExpressiveView(JPanel facePanel, JPanel graphPanel,JPanel blinkGraph, JPanel rgtWinkGraph, JPanel lftWinkGraph, JPanel lookGraph, JPanel furrowGraph,
+	public ExpressiveView(JPanel facePanel, JPanel graphPanel,JPanel blinkGraph, JPanel rgtWinkGraph, JPanel lftWinkGraph, JPanel looklftGraph, JPanel lookrgtGraph, JPanel furrowGraph,
 			JPanel raiseGraph, JPanel smileGraph, JPanel clenchGraph, JPanel lftSmirkGraph, JPanel rgtSmirkGraph, JPanel laughGraph){
 		
 		this.setLayout(null);
@@ -22,18 +22,13 @@ public class ExpressiveView extends JPanel{
 		facePanel.setBounds(0, 28, 326, 313);
 		this.add(facePanel); 
 		
-		
-		
 		graphPanel.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		graphPanel.setBounds(325, 28, 368, 313);
 		graphPanel.setLayout(null);
 		this.add(graphPanel);
 		
-		
-		
-
 //		final JPanel blinkGraph = new JPanel();
-		blinkGraph.setBounds(90, 11, 260, 18);
+		blinkGraph.setBounds(90, 10, 260, 20);
 		blinkGraph.setBackground(new Color(238, 238, 238));
 		blinkGraph.setBorder(BorderFactory.createLineBorder(Color.black));
 		graphPanel.add(blinkGraph);
@@ -43,11 +38,11 @@ public class ExpressiveView extends JPanel{
 		blinkLabel.setOpaque(true);
 		blinkLabel.setBackground(Color.GRAY);
 		blinkLabel.setHorizontalAlignment(SwingConstants.LEFT);
-		blinkLabel.setBounds(10, 11, 68, 20);
+		blinkLabel.setBounds(10, 10, 75, 20);
 		graphPanel.add(blinkLabel);
 
 //		rgtWinkGraph = new JPanel();
-		rgtWinkGraph.setBounds(90, 36, 260, 18);
+		rgtWinkGraph.setBounds(90, 35, 260, 20);
 		rgtWinkGraph.setBackground(new Color(238, 238, 238));
 		rgtWinkGraph.setBorder(BorderFactory.createLineBorder(Color.black));
 		graphPanel.add(rgtWinkGraph);
@@ -57,11 +52,11 @@ public class ExpressiveView extends JPanel{
 		rgtWinkLabel.setForeground(Color.WHITE);
 		rgtWinkLabel.setOpaque(true);
 		rgtWinkLabel.setHorizontalAlignment(SwingConstants.LEFT);
-		rgtWinkLabel.setBounds(10, 36, 68, 18);
+		rgtWinkLabel.setBounds(10, 35, 75, 20);
 		graphPanel.add(rgtWinkLabel);
 
 //		lftWinkGraph = new JPanel();
-		lftWinkGraph.setBounds(90, 65, 260, 18);
+		lftWinkGraph.setBounds(90, 60, 260, 20);
 		lftWinkGraph.setBackground(new Color(238, 238, 238));
 		lftWinkGraph.setBorder(BorderFactory.createLineBorder(Color.black));
 		graphPanel.add(lftWinkGraph);
@@ -71,25 +66,38 @@ public class ExpressiveView extends JPanel{
 		lftWinkLabel.setForeground(Color.WHITE);
 		lftWinkLabel.setBackground(Color.GRAY);
 		lftWinkLabel.setHorizontalAlignment(SwingConstants.LEFT);
-		lftWinkLabel.setBounds(10, 65, 68, 20);
+		lftWinkLabel.setBounds(10, 60, 75, 20);
 		graphPanel.add(lftWinkLabel);
 
 //		lookGraph = new JPanel();
-		lookGraph.setBounds(90, 90, 260, 18);
-		lookGraph.setBackground(new Color(238, 238, 238));
-		lookGraph.setBorder(BorderFactory.createLineBorder(Color.black));
-		graphPanel.add(lookGraph);
+		looklftGraph.setBounds(90, 85, 260, 20);
+		looklftGraph.setBackground(new Color(238, 238, 238));
+		looklftGraph.setBorder(BorderFactory.createLineBorder(Color.black));
+		graphPanel.add(looklftGraph);
 
-		final JLabel lookLabel = new JLabel("Look R/L");
-		lookLabel.setOpaque(true);
-		lookLabel.setForeground(Color.WHITE);
-		lookLabel.setBackground(Color.GRAY);
-		lookLabel.setHorizontalAlignment(SwingConstants.LEFT);
-		lookLabel.setBounds(10, 90, 68, 20);
-		graphPanel.add(lookLabel);
+		final JLabel looklftLabel = new JLabel("Look left");
+		looklftLabel.setOpaque(true);
+		looklftLabel.setForeground(Color.WHITE);
+		looklftLabel.setBackground(Color.GRAY);
+		looklftLabel.setHorizontalAlignment(SwingConstants.LEFT);
+		looklftLabel.setBounds(10, 85, 75, 20);
+		graphPanel.add(looklftLabel);
+		
+		lookrgtGraph.setBounds(90, 110, 260, 20);
+		lookrgtGraph.setBackground(new Color(238, 238, 238));
+		lookrgtGraph.setBorder(BorderFactory.createLineBorder(Color.black));
+		graphPanel.add(lookrgtGraph);
+
+		final JLabel lookrgtLabel = new JLabel("Look right");
+		lookrgtLabel.setOpaque(true);
+		lookrgtLabel.setForeground(Color.WHITE);
+		lookrgtLabel.setBackground(Color.GRAY);
+		lookrgtLabel.setHorizontalAlignment(SwingConstants.LEFT);
+		lookrgtLabel.setBounds(10, 110, 75, 20);
+		graphPanel.add(lookrgtLabel);
 
 //		furrowGraph = new JPanel();
-		furrowGraph.setBounds(90, 115, 260, 18);
+		furrowGraph.setBounds(90, 135, 260, 20);
 		furrowGraph.setBackground(new Color(238, 238, 238));
 		furrowGraph.setBorder(BorderFactory.createLineBorder(Color.black));
 		graphPanel.add(furrowGraph);
@@ -99,11 +107,11 @@ public class ExpressiveView extends JPanel{
 		furrowLabel.setForeground(Color.WHITE);
 		furrowLabel.setBackground(Color.GRAY);
 		furrowLabel.setHorizontalAlignment(SwingConstants.LEFT);
-		furrowLabel.setBounds(10, 115, 68, 20);
+		furrowLabel.setBounds(10, 135, 75, 20);
 		graphPanel.add(furrowLabel);
 
 //		raiseGraph = new JPanel();
-		raiseGraph.setBounds(90, 140, 260, 18);
+		raiseGraph.setBounds(90, 160, 260, 20);
 		raiseGraph.setBackground(new Color(238, 238, 238));
 		raiseGraph.setBorder(BorderFactory.createLineBorder(Color.black));
 		graphPanel.add(raiseGraph);
@@ -112,11 +120,11 @@ public class ExpressiveView extends JPanel{
 		raiseLabel.setOpaque(true);
 		raiseLabel.setForeground(Color.WHITE);
 		raiseLabel.setBackground(Color.GRAY);
-		raiseLabel.setBounds(10, 140, 68, 20);
+		raiseLabel.setBounds(10, 160, 75, 20);
 		graphPanel.add(raiseLabel);
 
 //		smileGraph = new JPanel();
-		smileGraph.setBounds(90, 165, 260, 18);
+		smileGraph.setBounds(90, 185, 260, 20);
 		smileGraph.setBackground(new Color(238, 238, 238));
 		smileGraph.setBorder(BorderFactory.createLineBorder(Color.black));
 		graphPanel.add(smileGraph);
@@ -125,11 +133,10 @@ public class ExpressiveView extends JPanel{
 		smileLabel.setOpaque(true);
 		smileLabel.setForeground(Color.WHITE);
 		smileLabel.setBackground(Color.GRAY);
-		smileLabel.setBounds(10, 165, 68, 20);
+		smileLabel.setBounds(10, 185, 75, 20);
 		graphPanel.add(smileLabel);
 
-//		clenchGraph = new JPanel();
-		clenchGraph.setBounds(90, 190, 260, 18);
+		clenchGraph.setBounds(90, 210, 260, 20);
 		clenchGraph.setBackground(new Color(238, 238, 238));
 		clenchGraph.setBorder(BorderFactory.createLineBorder(Color.black));
 		graphPanel.add(clenchGraph);
@@ -138,11 +145,10 @@ public class ExpressiveView extends JPanel{
 		clenchLabel.setOpaque(true);
 		clenchLabel.setForeground(Color.WHITE);
 		clenchLabel.setBackground(Color.GRAY);
-		clenchLabel.setBounds(10, 190, 68, 20);
+		clenchLabel.setBounds(10, 210, 75, 20);
 		graphPanel.add(clenchLabel);
 
-//		lftSmirkGraph = new JPanel();
-		lftSmirkGraph.setBounds(90, 215, 260, 18);
+		lftSmirkGraph.setBounds(90, 235, 260, 20);
 		lftSmirkGraph.setBackground(new Color(238, 238, 238));
 		lftSmirkGraph.setBorder(BorderFactory.createLineBorder(Color.black));
 		graphPanel.add(lftSmirkGraph);
@@ -151,11 +157,11 @@ public class ExpressiveView extends JPanel{
 		lftSmirkLabel.setOpaque(true);
 		lftSmirkLabel.setForeground(Color.WHITE);
 		lftSmirkLabel.setBackground(Color.GRAY);
-		lftSmirkLabel.setBounds(10, 215, 68, 20);
+		lftSmirkLabel.setBounds(10, 235, 75, 20);
 		graphPanel.add(lftSmirkLabel);
 
 //		rgtSmirkGraph = new JPanel();
-		rgtSmirkGraph.setBounds(90, 245, 260, 18);
+		rgtSmirkGraph.setBounds(90, 260, 260, 20);
 		rgtSmirkGraph.setBackground(new Color(238, 238, 238));
 		rgtSmirkGraph.setBorder(BorderFactory.createLineBorder(Color.black));
 		graphPanel.add(rgtSmirkGraph);
@@ -164,11 +170,10 @@ public class ExpressiveView extends JPanel{
 		rgtSmirkLabel.setOpaque(true);
 		rgtSmirkLabel.setForeground(Color.WHITE);
 		rgtSmirkLabel.setBackground(Color.GRAY);
-		rgtSmirkLabel.setBounds(10, 245, 68, 20);
+		rgtSmirkLabel.setBounds(10, 260, 75, 20);
 		graphPanel.add(rgtSmirkLabel);
 
-//		laughGraph = new JPanel();
-		laughGraph.setBounds(90, 276, 260, 18);
+		laughGraph.setBounds(90, 285, 260, 20);
 		laughGraph.setBackground(new Color(238, 238, 238));
 		laughGraph.setBorder(BorderFactory.createLineBorder(Color.black));
 		graphPanel.add(laughGraph);
@@ -177,7 +182,7 @@ public class ExpressiveView extends JPanel{
 		laughLabel.setOpaque(true);
 		laughLabel.setForeground(Color.WHITE);
 		laughLabel.setBackground(Color.GRAY);
-		laughLabel.setBounds(10, 276, 68, 20);
+		laughLabel.setBounds(10, 285, 75, 20);
 		graphPanel.add(laughLabel);
 
 		final JPanel blinkGraphPanel = new JPanel();
