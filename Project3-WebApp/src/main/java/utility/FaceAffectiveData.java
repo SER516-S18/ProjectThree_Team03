@@ -8,6 +8,14 @@ public class FaceAffectiveData {
 	Double frustation = 0.0;
 	Double excitementLongTerm = 0.0;
 	
+	public FaceAffectiveData() {
+		this.meditation = new Double(0.0);
+		this.engagementBoredom = new Double(0.0);
+		this.excitementShortTerm = new Double(0.0);
+		this.frustation = new Double(0.0);
+		this.excitementLongTerm = new Double(0.0);
+	}
+
 	public Double getMeditation() {
 		return meditation;
 	}

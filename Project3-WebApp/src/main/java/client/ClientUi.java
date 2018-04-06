@@ -43,7 +43,7 @@ import client.view.ExpressiveView;
 import client.view.FacePaint;
 import client.view.ColorSelectorButton.ColorChangedListener;
 
-
+import utility.FaceData;
 
 
 /**
@@ -371,5 +371,9 @@ public class ClientUi extends JFrame{
 			}
 		});
 		mnFile.add(exitMenuItem);
+	}
+
+	public void setFaceData(FaceData faceData) {
+		// @TODO information has been pushed from the server.
 	}
 }
