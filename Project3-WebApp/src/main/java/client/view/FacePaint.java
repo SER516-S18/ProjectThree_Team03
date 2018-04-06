@@ -35,8 +35,6 @@ public class FacePaint extends JPanel {
 	private double x_factor, y_factor;
 	private int x_origin, y_origin;
 
-	// GetVectors v = new GetVectors();
-
 	/**
 	 * Draws the face with the required expressions
 	 * 
@@ -54,10 +52,8 @@ public class FacePaint extends JPanel {
 	 *            Specifies the width of the window
 	 */
 	public void drawFace(Graphics g, int x, int y, int height, int width) {
-		// FaceExpressionData f = ClientSocket.getInstance().getFaceExpressionData();
 		FaceExpressionData f = new FaceExpressionData();
 		double[] v = f.fetchVectors();
-		//System.out.println(v);
 		String direction = "Center";
 		boolean blinkl = true;
 		boolean blinkr = false;
