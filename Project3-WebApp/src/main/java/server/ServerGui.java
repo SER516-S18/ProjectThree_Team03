@@ -64,6 +64,7 @@ public class ServerGui extends Thread implements ActionListener {
 				try {
 					ServerGui window = new ServerGui();
 					window.frame.setVisible(true);
+					FaceServer.start(8000);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -367,7 +368,7 @@ public class ServerGui extends Thread implements ActionListener {
 				timeElapsedTextbox.setText(timeElapsed.toString());
 
 			} catch (Exception ex) {
-				
+
 			}
 			faceData.setTimeElapsed(timeElapsed);
 			JSONObject faceDataJson = new JSONObject(faceData);
@@ -381,12 +382,9 @@ public class ServerGui extends Thread implements ActionListener {
 		FaceAffectiveData faceAffectiveData = new FaceAffectiveData();
 		FaceData faceData = new FaceData();
 
-		
-		
-
 		faceData.setFaceAffectiveData(faceAffectiveData);
 		faceData.setFaceExpressionData(faceExpressionData);
-		//System.out.println(faceData.toString());
+		// System.out.println(faceData.toString());
 
 		return faceData;
 		// System.out.println(faceAffectiveData.toString());
