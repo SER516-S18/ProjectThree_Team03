@@ -3,6 +3,7 @@ package server;
 import java.io.IOException;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -15,6 +16,8 @@ import javax.websocket.Session;
 import javax.websocket.server.ServerEndpoint;
 
 import org.glassfish.tyrus.server.Server;
+
+import utility.FaceData;
  
 /** 
  * @ServerEndpoint gives the relative name for the end point
@@ -26,27 +29,46 @@ import org.glassfish.tyrus.server.Server;
 @ServerEndpoint(value = "/faceData") 
 public class FaceServer {
 
-	ServerGui observer;
-	Gson gson;
-    int port;
-
-    static Session session = null;
+	private static Gson gson = null;
+    private static Session session = null;
+    private static Server server = null;
 
     public static void main(String[] args) {
-        Server server = new Server("localhost", 8025, "/", null, FaceServer.class);
+        // Server server = new Server("localhost", 8025, "/", null, FaceServer.class);
+        FaceServer.start(8025);
         try {
             server.start();
             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
             // System.out.print("Please press a key to stop the server.");
             String line = reader.readLine();
             while (!"exit".equals(line)) {
-                FaceServer.put(line);
+                FaceServer.put(new FaceData());
                 line = reader.readLine();
             }
         } catch (Exception e) {
             throw new RuntimeException(e);
         } finally {
             server.stop();
+        }
+    }
+
+    public static void start(int port) {
+        if (FaceServer.gson == null) {
+            FaceServer.gson = new GsonBuilder().create();
+        }
+        FaceServer.server = new Server("localhost", port, "/", null, FaceServer.class);
+        try {
+            FaceServer.server.start();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void stop() {
+        try {
+            FaceServer.server.stop();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -80,8 +102,9 @@ public class FaceServer {
         }
     }
 
-    public static void put(String message) {
+    public static void put(FaceData faceData) {
         try {
+            String message = FaceServer.gson.toJson(faceData, FaceData.class);
             FaceServer.session.getBasicRemote().sendText(message);
         } catch (Exception e) {
             e.printStackTrace();

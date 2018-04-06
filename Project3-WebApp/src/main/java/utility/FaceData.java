@@ -6,6 +6,11 @@ public class FaceData {
 	FaceExpressionData faceExpressionData;
 	FaceAffectiveData faceAffectiveData;
 	
+	public FaceData() {
+		this.faceExpressionData = new FaceExpressionData();
+		this.faceAffectiveData = new FaceAffectiveData();
+	}
+
 	public FaceExpressionData getFaceExpressionData() {
 		return faceExpressionData;
 	}

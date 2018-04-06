@@ -17,6 +17,19 @@ public class FaceExpressionData {
 	Boolean eyeReset = false;
 
 	public FaceExpressionData() {
+		this.raiseBrow = new Double(0.0);
+		this.furrowBrow = new Double(0.0);
+		this.smile = new Double(0.0);
+		this.clench = new Double(0.0);
+		this.smirkLeft = new Double(0.0);
+		this.smirkRight = new Double(0.0);
+		this.laugh = new Double(0.0);
+		this.blink = new Double(0.0);
+		this.winkLeft = new Double(0.0);
+		this.winkRight = new Double(0.0);
+		this.lookLeft = new Double(0.0);
+		this.lookRight = new Double(0.0);
+		this.eyeReset = new Boolean(false);
 	}
 
 	public Double getRaiseBrow() {

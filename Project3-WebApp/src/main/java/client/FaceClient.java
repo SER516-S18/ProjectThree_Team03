@@ -1,5 +1,5 @@
 package client;
- 
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -17,13 +17,19 @@ import javax.websocket.OnOpen;
 import javax.websocket.Session;
 import javax.websocket.ContainerProvider;
 import javax.websocket.WebSocketContainer;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
  
 import org.glassfish.tyrus.client.ClientManager;
+
+import utility.FaceData;
  
 @ClientEndpoint
 public class FaceClient {
  
     private Logger logger = Logger.getLogger(this.getClass().getName());
+    private static Gson gson = null;
  
     public static void main(String[] args) throws Exception {
         FaceClient.create("localhost", 8025);
@@ -33,8 +39,10 @@ public class FaceClient {
     }
 
     public static void create(String host, int port) throws Exception {
+        if (FaceClient.gson == null) {
+            FaceClient.gson = new GsonBuilder().create();
+        }
         ClientManager client = ClientManager.createClient();
-        // "ws://localhost:8025/ws/faces"
         client.connectToServer(FaceClient.class, 
             new URI("ws://" + host + ":" + new Integer(8025).toString() + "/faceData"));
     }
@@ -47,6 +55,7 @@ public class FaceClient {
     @OnMessage
     public void onMessage(String message, Session session) throws Exception {
         logger.info("Received ...." + message);
+        FaceData faceData = gson.fromJson(message, FaceData.class);
     }
  
     @OnClose

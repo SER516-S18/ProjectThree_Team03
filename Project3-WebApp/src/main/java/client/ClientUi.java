@@ -33,6 +33,8 @@ import javax.websocket.DeploymentException;
 import javax.websocket.WebSocketContainer;
 import client.ColorSelectorButton.ColorChangedListener;
 
+import utility.FaceData;
+
 
 /**
  * @SER516 Project3_Team03
@@ -478,5 +480,9 @@ public class ClientUi {
 			}
 		});
 		mnFile.add(exitMenuItem);
+	}
+
+	public void setFaceData(FaceData faceData) {
+		System.out.println("@TODO received face data.");
 	}
 }

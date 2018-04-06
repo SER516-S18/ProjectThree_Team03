@@ -1,0 +1,88 @@
+package client;
+ 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.util.concurrent.CountDownLatch;
+import java.util.logging.Logger;
+ 
+import javax.websocket.ClientEndpoint;
+import javax.websocket.CloseReason;
+import javax.websocket.DeploymentException;
+import javax.websocket.OnClose;
+import javax.websocket.OnMessage;
+import javax.websocket.OnOpen;
+import javax.websocket.Session;
+ 
+import org.glassfish.tyrus.client.ClientManager;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+ 
+import utility.FaceData;
+
+import server.FaceServer;
+
+@ClientEndpoint
+public class FaceClient {
+ 
+    private Logger logger = Logger.getLogger(this.getClass().getName());
+    private static ClientUi observer = null;
+    private static Gson gson = null;
+ 
+    public static void main(String[] args) throws Exception {
+        FaceClient.create();
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        System.out.print("Please press a key to stop the server.");
+        reader.readLine();
+    }
+
+    public static void create() {
+        FaceClient.observer = null;
+        FaceClient.gson = new GsonBuilder().create();
+        try {
+            ClientManager client = ClientManager.createClient();
+            client.connectToServer(FaceClient.class, new URI("ws://localhost:8025/ws/faces"));    
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        System.out.println("fuck you");
+    }
+
+    @OnOpen
+    public void onOpen(Session session) {
+        logger.info("Connected ... " + session.getId());
+        try {
+            session.getBasicRemote().sendText("start");
+            System.out.println("fuck this");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+    }
+ 
+    @OnMessage
+    public void onMessage(String message, Session session) {
+        System.out.println(message);
+        // FaceData faceData;
+        // try {
+        //     faceData = FaceClient.gson.fromJson(message, FaceData.class); 
+        // } catch (Exception e) {
+        //     e.printStackTrace();
+        //     return;
+        // }
+        // if (FaceClient.observer == null) {
+        //     System.out.println("Got stuff");
+        //     return;
+        // }
+        // FaceClient.observer.setFaceData(faceData);
+    }
+ 
+    @OnClose
+    public void onClose(Session session, CloseReason closeReason) {
+        logger.info(String.format("Session %s close because of %s", session.getId(), closeReason));
+    }
+ 
+}
