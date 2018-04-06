@@ -9,11 +9,8 @@ import java.awt.Point;
 import java.awt.RenderingHints;
 import java.awt.Stroke;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import javax.swing.*;
-
-import utility.FaceExpressionData;
 
 /**
  * @SER516 Project3_Team03
@@ -21,8 +18,7 @@ import utility.FaceExpressionData;
  */
 public class DisplayGraph extends JPanel {
     private static final long serialVersionUID = 1L;
-    private static final int MAX_VALUE = 3;
-    private static final int WIDTH = 255;
+//    private static final int WIDTH = 255;
     private static final int HEIGHT = 20;
     private static final int BORDER_GAP = 0;
     private static final Stroke GRAPH_STROKE = new BasicStroke(1f);

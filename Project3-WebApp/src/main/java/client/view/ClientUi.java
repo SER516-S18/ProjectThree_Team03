@@ -1,43 +1,24 @@
 package client.view;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import java.awt.Rectangle;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.IOException;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
 
-import javax.swing.BorderFactory;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
-import javax.swing.JTextField;
-import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 
-import javax.websocket.ContainerProvider;
-import javax.websocket.DeploymentException;
-import javax.websocket.WebSocketContainer;
 
 import client.constants.ClientConstants;
 import client.controller.ChangeColorController;
-import client.controller.ExpressiveController;
 import client.controller.MenuItemController;
-import client.service.ClientSocket;
 import utility.FaceData;
 
 
@@ -46,11 +27,9 @@ import utility.FaceData;
  * @Version 1.0
  */
 
+@SuppressWarnings("serial")
 public class ClientUi extends JFrame{
 
-	//JFrame frame;
-//	ClientSocket socket;
-//	
 	
 	private ColorSelectorButton interestButton;
 	private ColorSelectorButton engagementButton;
@@ -58,9 +37,6 @@ public class ClientUi extends JFrame{
 	private ColorSelectorButton relaxationButton;
 	private ColorSelectorButton excitementButton;
 	private ColorSelectorButton focusButton;
-	
-	
-
 	JPanel facePanel; 
 
 
@@ -77,11 +53,6 @@ public class ClientUi extends JFrame{
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize(JPanel expressiveView) {
-		/*
-		 * try { UIManager.setLookAndFeel(
-		 * "com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel"); } catch(Exception e) { }
-		 */
-
 
 		final JPanel panel = new JPanel();
 		panel.setBounds(0, 0, 698, 402);
@@ -92,12 +63,7 @@ public class ClientUi extends JFrame{
 		tabbedPane.setBounds(0, 22, 698, 380);
 		panel.add(tabbedPane);
 
-
-		
-		
 		tabbedPane.addTab("Expressive", null, expressiveView, null);
-
-		
 
 		final JPanel affectivePanel = new JPanel();
 		tabbedPane.addTab("Affective", null, affectivePanel, null);
@@ -121,7 +87,6 @@ public class ClientUi extends JFrame{
 		
 		gridBagConstraints.gridx = 1;
 		gridBagConstraints.gridy = 1;
-		
 		
 		
 		interestButton = new ColorSelectorButton(Color.WHITE,ClientConstants.INTEREST);
@@ -156,8 +121,6 @@ public class ClientUi extends JFrame{
 		
 		colPanel.add(relaxationButton,gridBagConstraints);
 		
-		
-		
 		gridBagConstraints.gridx = 3;
 		gridBagConstraints.gridy = 2;
 		
@@ -174,8 +137,6 @@ public class ClientUi extends JFrame{
 
 		new ChangeColorController(focusButton);
 		colPanel.add(focusButton,gridBagConstraints);
-		
-		
 		
 		affectivePanel.add(colPanel);
 

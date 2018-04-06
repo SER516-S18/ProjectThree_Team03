@@ -2,10 +2,6 @@ package client.controller;
 
 import java.awt.BorderLayout;
 import java.awt.Font;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 

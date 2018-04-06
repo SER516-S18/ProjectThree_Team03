@@ -8,16 +8,13 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 
+@SuppressWarnings("serial")
 public class ExpressiveView extends JPanel{
 	
-	
-
-
 	public ExpressiveView(JPanel facePanel, JPanel graphPanel,JPanel blinkGraph, JPanel rgtWinkGraph, JPanel lftWinkGraph, JPanel looklftGraph, JPanel lookrgtGraph, JPanel furrowGraph,
 			JPanel raiseGraph, JPanel smileGraph, JPanel clenchGraph, JPanel lftSmirkGraph, JPanel rgtSmirkGraph, JPanel laughGraph){
 		
 		this.setLayout(null);
-//		facePanel= new JPanel();
 		facePanel.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		facePanel.setBounds(0, 28, 326, 313);
 		this.add(facePanel); 
@@ -27,7 +24,6 @@ public class ExpressiveView extends JPanel{
 		graphPanel.setLayout(null);
 		this.add(graphPanel);
 		
-//		final JPanel blinkGraph = new JPanel();
 		blinkGraph.setBounds(90, 10, 260, 20);
 		blinkGraph.setBackground(new Color(238, 238, 238));
 		blinkGraph.setBorder(BorderFactory.createLineBorder(Color.black));
@@ -41,7 +37,6 @@ public class ExpressiveView extends JPanel{
 		blinkLabel.setBounds(10, 10, 75, 20);
 		graphPanel.add(blinkLabel);
 
-//		rgtWinkGraph = new JPanel();
 		rgtWinkGraph.setBounds(90, 35, 260, 20);
 		rgtWinkGraph.setBackground(new Color(238, 238, 238));
 		rgtWinkGraph.setBorder(BorderFactory.createLineBorder(Color.black));
@@ -55,7 +50,6 @@ public class ExpressiveView extends JPanel{
 		rgtWinkLabel.setBounds(10, 35, 75, 20);
 		graphPanel.add(rgtWinkLabel);
 
-//		lftWinkGraph = new JPanel();
 		lftWinkGraph.setBounds(90, 60, 260, 20);
 		lftWinkGraph.setBackground(new Color(238, 238, 238));
 		lftWinkGraph.setBorder(BorderFactory.createLineBorder(Color.black));
@@ -69,7 +63,6 @@ public class ExpressiveView extends JPanel{
 		lftWinkLabel.setBounds(10, 60, 75, 20);
 		graphPanel.add(lftWinkLabel);
 
-//		lookGraph = new JPanel();
 		looklftGraph.setBounds(90, 85, 260, 20);
 		looklftGraph.setBackground(new Color(238, 238, 238));
 		looklftGraph.setBorder(BorderFactory.createLineBorder(Color.black));
@@ -96,7 +89,6 @@ public class ExpressiveView extends JPanel{
 		lookrgtLabel.setBounds(10, 110, 75, 20);
 		graphPanel.add(lookrgtLabel);
 
-//		furrowGraph = new JPanel();
 		furrowGraph.setBounds(90, 135, 260, 20);
 		furrowGraph.setBackground(new Color(238, 238, 238));
 		furrowGraph.setBorder(BorderFactory.createLineBorder(Color.black));
@@ -110,7 +102,6 @@ public class ExpressiveView extends JPanel{
 		furrowLabel.setBounds(10, 135, 75, 20);
 		graphPanel.add(furrowLabel);
 
-//		raiseGraph = new JPanel();
 		raiseGraph.setBounds(90, 160, 260, 20);
 		raiseGraph.setBackground(new Color(238, 238, 238));
 		raiseGraph.setBorder(BorderFactory.createLineBorder(Color.black));
@@ -123,7 +114,6 @@ public class ExpressiveView extends JPanel{
 		raiseLabel.setBounds(10, 160, 75, 20);
 		graphPanel.add(raiseLabel);
 
-//		smileGraph = new JPanel();
 		smileGraph.setBounds(90, 185, 260, 20);
 		smileGraph.setBackground(new Color(238, 238, 238));
 		smileGraph.setBorder(BorderFactory.createLineBorder(Color.black));
@@ -160,7 +150,6 @@ public class ExpressiveView extends JPanel{
 		lftSmirkLabel.setBounds(10, 235, 75, 20);
 		graphPanel.add(lftSmirkLabel);
 
-//		rgtSmirkGraph = new JPanel();
 		rgtSmirkGraph.setBounds(90, 260, 260, 20);
 		rgtSmirkGraph.setBackground(new Color(238, 238, 238));
 		rgtSmirkGraph.setBorder(BorderFactory.createLineBorder(Color.black));
@@ -229,11 +218,5 @@ public class ExpressiveView extends JPanel{
 		laughGraphPanel.setBounds(82, 276, 276, 18);
 		graphPanel.add(laughGraphPanel);
 		
-		
-		
-
 	}
-
-	
-
 }
