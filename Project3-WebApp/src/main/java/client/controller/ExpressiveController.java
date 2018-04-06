@@ -78,14 +78,6 @@ public ExpressiveController(){
 	
 	
 	
-	
-	
-
-	
-	
-	
-	
-	
 
 	
 	Thread t = new Thread(new Runnable() {
