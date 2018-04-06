@@ -49,6 +49,7 @@ public class FaceServer {
 		try {
 			String message = FaceServer.gson.toJson(faceData, FaceData.class);
 			FaceServer.session.getBasicRemote().sendText(message);
+			System.out.println(message);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

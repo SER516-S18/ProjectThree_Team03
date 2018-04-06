@@ -1,13 +1,9 @@
 package server.view;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
@@ -16,8 +12,6 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SpinnerListModel;
 import javax.swing.SpringLayout;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
 
 import server.ServerConsole;
 import server.controller.DetectionController;
@@ -25,11 +19,10 @@ import utility.FaceAffectiveData;
 import utility.FaceExpressionData;
 
 public class DetectionPanel extends JPanel {
-	
 
 	private JTextField timeElapsedTextbox;
 	private JSpinner spinnerEmoStateInterval, spinnerUpperFace, spinnerLowerFace, spinnerAffective;
-	private JCheckBox  chckbxEyeAutoReset;
+	private JCheckBox chckbxEyeAutoReset;
 	private JTextArea txtAreaEmoLogs;
 	private JButton btnSend, btnClearLogs;
 	private JComboBox comboUpperFace, comboLowerFace, comboEye, comboAffective;
@@ -37,18 +30,20 @@ public class DetectionPanel extends JPanel {
 	public FaceExpressionData faceExpressionData;
 	public FaceAffectiveData faceAffectiveData;
 	public JLabel lblEmoState;
-	public DetectionPanel(){
+
+	private DetectionController detectionController;
+
+	public DetectionPanel() {
 		SpringLayout springpanel = new SpringLayout();
 		this.setLayout(springpanel);
-		
-		faceAffectiveData= new FaceAffectiveData();
+
+		faceAffectiveData = new FaceAffectiveData();
 		faceExpressionData = new FaceExpressionData();
-		
+
 		lblEmoState = new JLabel("EMO STATE");
 		springpanel.putConstraint(SpringLayout.NORTH, lblEmoState, 13, SpringLayout.NORTH, this);
 		springpanel.putConstraint(SpringLayout.WEST, lblEmoState, 12, SpringLayout.WEST, this);
 		springpanel.putConstraint(SpringLayout.EAST, lblEmoState, 88, SpringLayout.WEST, this);
-		
 
 		JLabel lblTime = new JLabel("TIME: ");
 		springpanel.putConstraint(SpringLayout.NORTH, lblTime, 47, SpringLayout.NORTH, this);
@@ -58,8 +53,7 @@ public class DetectionPanel extends JPanel {
 
 		timeElapsedTextbox = new JTextField();
 		timeElapsedTextbox.setEditable(false);
-		springpanel.putConstraint(SpringLayout.NORTH, timeElapsedTextbox, 44, SpringLayout.NORTH,
-				this);
+		springpanel.putConstraint(SpringLayout.NORTH, timeElapsedTextbox, 44, SpringLayout.NORTH, this);
 		springpanel.putConstraint(SpringLayout.WEST, timeElapsedTextbox, 74, SpringLayout.WEST, this);
 		this.add(timeElapsedTextbox);
 		timeElapsedTextbox.setColumns(10);
@@ -84,7 +78,7 @@ public class DetectionPanel extends JPanel {
 		this.add(comboUpperFace);
 
 		spinnerUpperFace = new JSpinner();
-		springpanel.putConstraint(SpringLayout.NORTH, spinnerUpperFace, 144, SpringLayout.NORTH,this);
+		springpanel.putConstraint(SpringLayout.NORTH, spinnerUpperFace, 144, SpringLayout.NORTH, this);
 		springpanel.putConstraint(SpringLayout.WEST, spinnerUpperFace, 125, SpringLayout.WEST, this);
 		springpanel.putConstraint(SpringLayout.EAST, spinnerUpperFace, 190, SpringLayout.WEST, this);
 		spinnerUpperFace.setModel(new SpinnerListModel(
@@ -105,8 +99,7 @@ public class DetectionPanel extends JPanel {
 
 		spinnerLowerFace = new JSpinner();
 		springpanel.putConstraint(SpringLayout.EAST, comboLowerFace, -10, SpringLayout.WEST, spinnerLowerFace);
-		springpanel.putConstraint(SpringLayout.NORTH, spinnerLowerFace, 144, SpringLayout.NORTH,
-				this);
+		springpanel.putConstraint(SpringLayout.NORTH, spinnerLowerFace, 144, SpringLayout.NORTH, this);
 		springpanel.putConstraint(SpringLayout.WEST, spinnerLowerFace, 402, SpringLayout.WEST, this);
 		springpanel.putConstraint(SpringLayout.EAST, spinnerLowerFace, 458, SpringLayout.WEST, this);
 		spinnerLowerFace.setModel(new SpinnerListModel(
@@ -136,12 +129,11 @@ public class DetectionPanel extends JPanel {
 		chckbxEyeAutoReset = new JCheckBox("Auto Reset");
 		springpanel.putConstraint(SpringLayout.NORTH, chckbxEyeAutoReset, 6, SpringLayout.SOUTH, comboEye);
 		springpanel.putConstraint(SpringLayout.WEST, chckbxEyeAutoReset, 0, SpringLayout.WEST, lblEmoState);
-		springpanel.putConstraint(SpringLayout.EAST, chckbxEyeAutoReset, -359, SpringLayout.EAST,this);
+		springpanel.putConstraint(SpringLayout.EAST, chckbxEyeAutoReset, -359, SpringLayout.EAST, this);
 		this.add(chckbxEyeAutoReset);
 
 		JLabel lblEmoengineLogs = new JLabel("EmoEngine Logs");
-		springpanel.putConstraint(SpringLayout.NORTH, lblEmoengineLogs, 316, SpringLayout.NORTH,
-				this);
+		springpanel.putConstraint(SpringLayout.NORTH, lblEmoengineLogs, 316, SpringLayout.NORTH, this);
 		springpanel.putConstraint(SpringLayout.WEST, lblEmoengineLogs, 25, SpringLayout.WEST, this);
 		springpanel.putConstraint(SpringLayout.EAST, lblEmoengineLogs, 124, SpringLayout.WEST, this);
 		this.add(lblEmoengineLogs);
@@ -153,7 +145,7 @@ public class DetectionPanel extends JPanel {
 		springpanel.putConstraint(SpringLayout.SOUTH, txtAreaEmoLogs, 474, SpringLayout.NORTH, this);
 		springpanel.putConstraint(SpringLayout.EAST, txtAreaEmoLogs, 458, SpringLayout.WEST, this);
 		txtAreaEmoLogs.setRows(5);
-		
+
 		ServerConsole sc = ServerConsole.getInstance();
 		sc.setJtextArea(txtAreaEmoLogs);
 		this.add(txtAreaEmoLogs);
@@ -163,7 +155,6 @@ public class DetectionPanel extends JPanel {
 		springpanel.putConstraint(SpringLayout.WEST, btnClearLogs, 185, SpringLayout.WEST, this);
 		springpanel.putConstraint(SpringLayout.EAST, btnClearLogs, 282, SpringLayout.WEST, this);
 		this.add(btnClearLogs);
-	
 
 		JLabel lblAffective = new JLabel("Affective:");
 		springpanel.putConstraint(SpringLayout.NORTH, lblAffective, 0, SpringLayout.NORTH, lblEye);
@@ -177,28 +168,31 @@ public class DetectionPanel extends JPanel {
 		comboAffective.setModel(new DefaultComboBoxModel(new String[] { "Meditation", "Engagement Boredom",
 				"Excitement ShortTerm", "Frustration", "Excitement LongTerm" }));
 		this.add(comboAffective);
-		
-		
-		
+
 		spinnerAffective = new JSpinner();
 		springpanel.putConstraint(SpringLayout.EAST, comboAffective, -10, SpringLayout.WEST, spinnerAffective);
 		springpanel.putConstraint(SpringLayout.NORTH, spinnerAffective, 0, SpringLayout.NORTH, rdbtnActive);
 		springpanel.putConstraint(SpringLayout.WEST, spinnerAffective, 0, SpringLayout.WEST, spinnerLowerFace);
 		springpanel.putConstraint(SpringLayout.EAST, spinnerAffective, 0, SpringLayout.EAST, spinnerLowerFace);
 		spinnerAffective.setModel(new SpinnerListModel(
-		new String[] {"0","0.1", "0.2", "0.3", "0.4", "0.5", "0.6", "0.7", "0.8", "0.9", "1.0" }));
+				new String[] { "0", "0.1", "0.2", "0.3", "0.4", "0.5", "0.6", "0.7", "0.8", "0.9", "1.0" }));
 		this.add(spinnerAffective);
-		
+
 		addComponent();
-		
-		new DetectionController(spinnerUpperFace, spinnerLowerFace, spinnerAffective, comboUpperFace, comboLowerFace,
-				comboAffective, comboEye, chckbxEyeAutoReset, rdbtnActive,faceAffectiveData,faceExpressionData);
-		
+
+		this.detectionController = new DetectionController(spinnerUpperFace, spinnerLowerFace, spinnerAffective,
+				comboUpperFace, comboLowerFace, comboAffective, comboEye, chckbxEyeAutoReset, rdbtnActive,
+				faceAffectiveData, faceExpressionData);
+
 	}
-	
-	public void addComponent(){
+
+	public void addComponent() {
 		add(lblEmoState);
-		
+
 	}
-	
+
+	public DetectionController getDetectionController() {
+		return this.detectionController;
+	}
+
 }

@@ -11,15 +11,16 @@ import javax.swing.SpinnerNumberModel;
 
 import server.controller.InteractiveController;
 
-public class InteractivePanel extends JPanel{
+public class InteractivePanel extends JPanel {
 
 	JSpinner spinnerEmoStateInterval;
 	JCheckBox chckbxAutoReset;
 	JButton btnSend;
-	
-	
-	public InteractivePanel(){
-		
+	DetectionPanel dpanel;
+
+	public InteractivePanel(DetectionPanel dpanel) {
+
+		this.dpanel = dpanel;
 		this.setLayout(null);
 		JLabel lblPlayer = new JLabel("Player");
 		lblPlayer.setBounds(12, 26, 56, 16);
@@ -35,7 +36,8 @@ public class InteractivePanel extends JPanel{
 		this.add(lblEmo);
 
 		spinnerEmoStateInterval = new JSpinner();
-		spinnerEmoStateInterval.setModel(new SpinnerNumberModel(new Double(0.0), new Double(0.0), null, new Double(0.25)));
+		spinnerEmoStateInterval
+				.setModel(new SpinnerNumberModel(new Double(0.0), new Double(0.0), null, new Double(0.25)));
 		spinnerEmoStateInterval.setBounds(349, 23, 75, 22);
 		this.add(spinnerEmoStateInterval);
 
@@ -46,12 +48,11 @@ public class InteractivePanel extends JPanel{
 		chckbxAutoReset = new JCheckBox("Auto reset");
 		chckbxAutoReset.setBounds(219, 58, 113, 25);
 		this.add(chckbxAutoReset);
-	
 
 		btnSend = new JButton("Send");
 		btnSend.setBounds(337, 58, 119, 25);
 		this.add(btnSend);
-		
-		new InteractiveController(btnSend,spinnerEmoStateInterval,chckbxAutoReset);
+
+		new InteractiveController(btnSend, spinnerEmoStateInterval, chckbxAutoReset, dpanel);
 	}
 }

@@ -22,17 +22,24 @@ public class FaceClient {
 
 	private static Gson gson = null;
 	private static ClientUi observer = null;
+	private static boolean isConnected = false;
 
-	public static void create(String host, int port, ClientUi observer) throws Exception {
+	public static void connect(String host, String port) throws Exception {
+		ClientManager client = ClientManager.createClient();
+		client.connectToServer(FaceClient.class, new URI("ws://" + host + ":" + port + "/faceData"));
+
+	}
+
+	public static void create(ClientUi observer) {
 		FaceClient.gson = new GsonBuilder().create();
 		FaceClient.observer = observer;
-		ClientManager client = ClientManager.createClient();
-		client.connectToServer(FaceClient.class, new URI("ws://" + host + ":" + String.valueOf(port) + "/faceServer"));
+
 	}
 
 	@OnOpen
 	public void onOpen(Session session) throws Exception {
 		System.out.println("Connected ... " + session.getId());
+		isConnected = true;
 	}
 
 	@OnMessage
@@ -45,6 +52,10 @@ public class FaceClient {
 	@OnClose
 	public void onClose(Session session, CloseReason closeReason) {
 		System.out.println(String.format("Session %s close because of %s", session.getId(), closeReason));
+		isConnected = false;
 	}
 
+	public static boolean isConnected() {
+		return isConnected;
+	}
 }

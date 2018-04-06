@@ -15,12 +15,11 @@ import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.border.LineBorder;
 
-
 import client.constants.ClientConstants;
 import client.controller.ChangeColorController;
 import client.controller.MenuItemController;
+import client.service.FaceClient;
 import utility.FaceData;
-
 
 /**
  * @SER516 Project3_Team03
@@ -28,17 +27,15 @@ import utility.FaceData;
  */
 
 @SuppressWarnings("serial")
-public class ClientUi extends JFrame{
+public class ClientUi extends JFrame {
 
-	
 	private ColorSelectorButton interestButton;
 	private ColorSelectorButton engagementButton;
 	private ColorSelectorButton stressButton;
 	private ColorSelectorButton relaxationButton;
 	private ColorSelectorButton excitementButton;
 	private ColorSelectorButton focusButton;
-	JPanel facePanel; 
-
+	JPanel facePanel;
 
 	/**
 	 * Create the application.
@@ -47,6 +44,7 @@ public class ClientUi extends JFrame{
 		initialize(expressiveView);
 		this.setBounds(new Rectangle(0, 0, 710, 432));
 		this.getContentPane().setLayout(null);
+		FaceClient.create(this);
 	}
 
 	/**
@@ -77,67 +75,61 @@ public class ClientUi extends JFrame{
 		final JPanel colPanel = new JPanel();
 		colPanel.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		colPanel.setBounds(350, 30, 343, 311);
-		
-		
+
 		GridBagConstraints gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.ipadx = 50;
 		gridBagConstraints.ipady = 50;
 		gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
 		gridBagConstraints.insets = new Insets(10, 10, 10, 10);
-		
+
 		gridBagConstraints.gridx = 1;
 		gridBagConstraints.gridy = 1;
-		
-		
-		interestButton = new ColorSelectorButton(Color.WHITE,ClientConstants.INTEREST);
+
+		interestButton = new ColorSelectorButton(Color.WHITE, ClientConstants.INTEREST);
 		new ChangeColorController(interestButton);
-		colPanel.add(interestButton,gridBagConstraints);
-			
+		colPanel.add(interestButton, gridBagConstraints);
+
 		gridBagConstraints.gridx = 2;
 		gridBagConstraints.gridy = 1;
-		
-		engagementButton = new ColorSelectorButton(Color.black,ClientConstants.ENGAGEMENT);
+
+		engagementButton = new ColorSelectorButton(Color.black, ClientConstants.ENGAGEMENT);
 		new ChangeColorController(engagementButton);
 
-		
-		colPanel.add(engagementButton,gridBagConstraints);
-		
-	
+		colPanel.add(engagementButton, gridBagConstraints);
+
 		gridBagConstraints.gridx = 3;
 		gridBagConstraints.gridy = 1;
-		
-		stressButton = new ColorSelectorButton(Color.black,ClientConstants.STRESS);
 
-		
+		stressButton = new ColorSelectorButton(Color.black, ClientConstants.STRESS);
+
 		new ChangeColorController(engagementButton);
-		colPanel.add(stressButton,gridBagConstraints);
-		
+		colPanel.add(stressButton, gridBagConstraints);
+
 		gridBagConstraints.gridx = 2;
 		gridBagConstraints.gridy = 2;
-		
-		relaxationButton = new ColorSelectorButton(Color.black,ClientConstants.RELAXATION);
+
+		relaxationButton = new ColorSelectorButton(Color.black, ClientConstants.RELAXATION);
 
 		new ChangeColorController(relaxationButton);
-		
-		colPanel.add(relaxationButton,gridBagConstraints);
-		
+
+		colPanel.add(relaxationButton, gridBagConstraints);
+
 		gridBagConstraints.gridx = 3;
 		gridBagConstraints.gridy = 2;
-		
-		excitementButton = new ColorSelectorButton(Color.black,ClientConstants.EXCITEMENT);
+
+		excitementButton = new ColorSelectorButton(Color.black, ClientConstants.EXCITEMENT);
 
 		new ChangeColorController(excitementButton);
-		colPanel.add(excitementButton,gridBagConstraints);
-			
-		
+		colPanel.add(excitementButton, gridBagConstraints);
+
 		gridBagConstraints.gridx = 2;
 		gridBagConstraints.gridy = 2;
-		
-		focusButton = new ColorSelectorButton(Color.black,ClientConstants.FOCUS);
+
+		focusButton = new ColorSelectorButton(Color.black, ClientConstants.FOCUS);
 
 		new ChangeColorController(focusButton);
-		colPanel.add(focusButton,gridBagConstraints);
-		
+		colPanel.add(focusButton, gridBagConstraints);
+
 		affectivePanel.add(colPanel);
 
 		final JLabel perfLabel = new JLabel("    Performance Matrix");
@@ -171,7 +163,7 @@ public class ClientUi extends JFrame{
 
 		JMenuItem exitMenuItem = new JMenuItem("Exit");
 		mnFile.add(exitMenuItem);
-		
+
 		new MenuItemController(serverConnect, serverConsole, exitMenuItem);
 	}
 
