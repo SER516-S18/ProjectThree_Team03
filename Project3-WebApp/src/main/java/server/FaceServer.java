@@ -23,21 +23,26 @@ import org.glassfish.tyrus.server.Server;
  * "EchoChamber" is the name of the package
  * and "echo" is the address to access this class from the server
  */
-@ServerEndpoint(value = "/faces") 
+@ServerEndpoint(value = "/faceData") 
 public class FaceServer {
 
 	ServerGui observer;
 	Gson gson;
     int port;
 
+    static Session session = null;
+
     public static void main(String[] args) {
-        Server server = new Server("localhost", 8025, "/ws", null, FaceServer.class);
- 
+        Server server = new Server("localhost", 8025, "/", null, FaceServer.class);
         try {
             server.start();
             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-            System.out.print("Please press a key to stop the server.");
-            reader.readLine();
+            // System.out.print("Please press a key to stop the server.");
+            String line = reader.readLine();
+            while (!"exit".equals(line)) {
+                FaceServer.put(line);
+                line = reader.readLine();
+            }
         } catch (Exception e) {
             throw new RuntimeException(e);
         } finally {
@@ -45,67 +50,41 @@ public class FaceServer {
         }
     }
 
-	// public FaceServer(ServerGui observer, int port) {
-	// 	this.observer = observer;
-	// 	this.gson = new Gson();
- //        this.port = port;
-	// }
-
- //    public void start() {
- //        Server server = new Server("localhost", this.port, "/faces", null, FaceServer.class);
- //        try {
- //            server.start();
- //            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
- //            System.out.print("Please press a key to stop the server.");
- //            reader.readLine();
- //        } catch (Exception e) {
- //            throw new RuntimeException(e);
- //        } finally {
- //            server.stop();
- //        }
- //    }
-
-    /**
-     * @OnOpen allows us to intercept the creation of a new session.
-     * The session class allows us to send data to the user.
-     * In the method onOpen, we'll let the user know that the handshake was 
-     * successful.
-     */
     @OnOpen
-    public void onOpen(Session session){
+    public void onOpen(Session session) {
+        if (FaceServer.session != null) {
+            System.out.println(session.getId() +
+                " has opened a connection, but a connection is already open."); 
+            try {
+                session.getBasicRemote().sendText("Only one client is allowed at a time");
+                session.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return;
+        }
+        FaceServer.session = session;
         System.out.println(session.getId() + " has opened a connection"); 
-        // try {
-        //     session.getBasicRemote().sendText("Connection Established");
-        // } catch (IOException ex) {
-        //     ex.printStackTrace();
-        // }
     }
  
-    /**
-     * When a user sends a message to the server, this method will intercept the message
-     * and allow us to react to it. For now the message is read as a String.
-     */
     @OnMessage
     public void onMessage(String message, Session session) throws Exception {
-        session.getBasicRemote().sendText(message);
-    	// FaceData request = gson.fromJson(message, FaceData.class); 
-     //    System.out.println("Message from " + session.getId() + ": " + message);
-     //    FaceData responseObj = this.observer.respondTo(request);
-     //    String response = gson.toJson(responseObj, FaceData.class);
-     //    try {
-     //        session.getBasicRemote().sendText(response);
-     //    } catch (IOException ex) {
-     //        ex.printStackTrace();
-     //    }
+        System.out.println(message);
     }
- 
-    /**
-     * The user closes the connection.
-     * 
-     * Note: you can't send messages to the client from this method
-     */
+
     @OnClose
     public void onClose(Session session){
         System.out.println("Session " + session.getId() + " has ended");
+        if (session == FaceServer.session) {
+            FaceServer.session = null;    
+        }
+    }
+
+    public static void put(String message) {
+        try {
+            FaceServer.session.getBasicRemote().sendText(message);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

@@ -15,6 +15,8 @@ import javax.websocket.OnClose;
 import javax.websocket.OnMessage;
 import javax.websocket.OnOpen;
 import javax.websocket.Session;
+import javax.websocket.ContainerProvider;
+import javax.websocket.WebSocketContainer;
  
 import org.glassfish.tyrus.client.ClientManager;
  
@@ -24,22 +26,27 @@ public class FaceClient {
     private Logger logger = Logger.getLogger(this.getClass().getName());
  
     public static void main(String[] args) throws Exception {
+        FaceClient.create("localhost", 8025);
+        BufferedReader bufferRead = new BufferedReader(new InputStreamReader(System.in));
+        bufferRead.readLine();
+        System.exit(0);
+    }
+
+    public static void create(String host, int port) throws Exception {
         ClientManager client = ClientManager.createClient();
-        client.connectToServer(FaceClient.class, new URI("ws://localhost:8025/ws/faces"));
+        // "ws://localhost:8025/ws/faces"
+        client.connectToServer(FaceClient.class, 
+            new URI("ws://" + host + ":" + new Integer(8025).toString() + "/faceData"));
     }
 
     @OnOpen
     public void onOpen(Session session) throws Exception {
         logger.info("Connected ... " + session.getId());
-        session.getBasicRemote().sendText("start");
     }
  
     @OnMessage
-    public String onMessage(String message, Session session) throws Exception {
-        BufferedReader bufferRead = new BufferedReader(new InputStreamReader(System.in));
+    public void onMessage(String message, Session session) throws Exception {
         logger.info("Received ...." + message);
-        String userInput = bufferRead.readLine();
-        return userInput;
     }
  
     @OnClose
