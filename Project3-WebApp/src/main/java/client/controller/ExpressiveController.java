@@ -20,7 +20,8 @@ public class ExpressiveController {
 	private JPanel blinkGraph;
 	private JPanel rgtWinkGraph;
 	private JPanel lftWinkGraph;
-	private JPanel lookGraph;
+	private JPanel looklftGraph;
+	private JPanel lookrgtGraph;
 	private JPanel furrowGraph;
 	private JPanel raiseGraph;
 	private JPanel smileGraph;
@@ -36,7 +37,8 @@ public ExpressiveController(){
 	blinkGraph = new JPanel();
 	rgtWinkGraph = new JPanel();
 	lftWinkGraph = new JPanel();
-	lookGraph = new JPanel();
+	looklftGraph = new JPanel();
+	lookrgtGraph = new JPanel();
 	furrowGraph = new JPanel();
 	raiseGraph = new JPanel();
 	smileGraph = new JPanel();
@@ -47,7 +49,7 @@ public ExpressiveController(){
 	laughGraph = new JPanel();
 	
 	
-	expressiveView = new ExpressiveView(facePanel, graphPanel,blinkGraph,rgtWinkGraph,lftWinkGraph,lookGraph,furrowGraph,
+	expressiveView = new ExpressiveView(facePanel, graphPanel,blinkGraph,rgtWinkGraph,lftWinkGraph,looklftGraph,lookrgtGraph,furrowGraph,
 			raiseGraph,smileGraph,clenchGraph,lftSmirkGraph,rgtSmirkGraph,laughGraph);
 	
 	
@@ -76,9 +78,6 @@ public ExpressiveController(){
 	final DisplayGraph g10 = new DisplayGraph();
 	final DisplayGraph g11 = new DisplayGraph();
 	
-	
-	
-
 	
 	Thread t = new Thread(new Runnable() {
 
@@ -114,10 +113,10 @@ public ExpressiveController(){
 				rgtWinkGraph.repaint();
 				lftWinkGraph.add(g2, BorderLayout.CENTER);
 				lftWinkGraph.repaint();
-				rgtWinkGraph.add(g3, BorderLayout.CENTER);
-				rgtWinkGraph.repaint();
-				lookGraph.add(g4, BorderLayout.CENTER);
-				lookGraph.repaint();
+				lookrgtGraph.add(g3, BorderLayout.CENTER);
+				lookrgtGraph.repaint();
+				looklftGraph.add(g4, BorderLayout.CENTER);
+				looklftGraph.repaint();
 				furrowGraph.add(g5, BorderLayout.CENTER);
 				furrowGraph.repaint();
 				raiseGraph.add(g6, BorderLayout.CENTER);
