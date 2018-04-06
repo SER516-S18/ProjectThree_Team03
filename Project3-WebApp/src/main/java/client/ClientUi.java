@@ -39,7 +39,7 @@ import client.view.ColorSelectorButton;
 import client.view.DisplayGraph;
 import client.view.ColorSelectorButton.ColorChangedListener;
 
-
+import utility.FaceData;
 
 /**
  * @SER516 Project3_Team03
@@ -579,5 +579,9 @@ public class ClientUi {
 			}
 		});
 		mnFile.add(exitMenuItem);
+	}
+
+	public void setFaceData(FaceData faceData) {
+		// @TODO information has been pushed from the server.
 	}
 }
