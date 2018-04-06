@@ -48,7 +48,7 @@ public class EmoticonComposer extends JFrame {
 			double emoIntervalSelected = 1;
 			Double timeElapsed = 0.0;
 			InteractivePanel ipanel;
-			DetectionPanel dpanel;
+			public DetectionPanel dpanel;
 
 			
 			public EmoticonComposer() {

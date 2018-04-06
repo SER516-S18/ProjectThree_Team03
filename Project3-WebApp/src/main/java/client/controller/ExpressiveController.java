@@ -44,7 +44,7 @@ public ExpressiveController(){
 	smileGraph = new JPanel();
 	rgtSmirkGraph = new JPanel();
 	laughGraph = new JPanel();
-	FaceExpressionData fed = new FaceExpressionData();
+	final FaceExpressionData fed = new FaceExpressionData();
 	
 	
 	expressiveView = new ExpressiveView(facePanel, graphPanel,blinkGraph,rgtWinkGraph,lftWinkGraph,looklftGraph,lookrgtGraph,furrowGraph,
