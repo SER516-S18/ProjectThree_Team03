@@ -136,7 +136,7 @@ public class FaceExpressionData {
 		this.eyeReset = eyeReset;
 	}
 
-	public void reset(){
+	public void reset() {
 		raiseBrow = 0.0;
 		furrowBrow = 0.0;
 		smile = 0.0;
@@ -151,24 +151,26 @@ public class FaceExpressionData {
 		lookRight = 0.0;
 		eyeReset = false;
 	}
+
 	public double[] fetchVectors() {
-		// Double[] p = new Double[13];
-		// p[1] = getRaiseBrow();
-		// p[2] = getFurrowBrow();
-		// p[3] = getSmile();
-		// p[4] = getClench();
-		// p[5] = getSmirkLeft();
-		// p[6] = getSmirkRight();
-		// p[7] = getLaugh();
-		// p[8] = getBlink();
-		// p[9] = getWinkLeft();
-		// p[10] = getWinkRight();
-		// p[11] = getLookLeft();
-		// p[12] = getLookRight();
+		double[] p = new double[13];
+		p[1] = getRaiseBrow();
+		p[2] = getFurrowBrow();
+		p[3] = getSmile();
+		p[4] = getClench();
+		p[5] = getSmirkLeft();
+		p[6] = getSmirkRight();
+		p[7] = getLaugh();
+		p[8] = getBlink();
+		p[9] = getWinkLeft();
+		p[10] = getWinkRight();
+		p[11] = getLookLeft();
+		p[12] = getLookRight();
 
 		// these are mock values, will be removed when websocket implementation is done.
-		double[] p = { 0.0345, 0.678, 0.467678, 0.6788, 0.567, 0.6788, 0.67868, 0.7989, 0.6878, 0.79879, 0.7898, 0.79,
-				0.890 };
+		// double[] p = { 0.0345, 0.678, 0.467678, 0.6788, 0.567, 0.6788, 0.67868,
+		// 0.7989, 0.6878, 0.79879, 0.7898, 0.79,
+		// 0.890 };
 
 		return p;
 	}

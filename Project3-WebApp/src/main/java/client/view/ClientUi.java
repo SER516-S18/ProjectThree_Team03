@@ -17,6 +17,7 @@ import javax.swing.border.LineBorder;
 
 import client.constants.ClientConstants;
 import client.controller.ChangeColorController;
+import client.controller.ExpressiveController;
 import client.controller.MenuItemController;
 import client.service.FaceClient;
 import utility.FaceData;
@@ -36,12 +37,14 @@ public class ClientUi extends JFrame {
 	private ColorSelectorButton excitementButton;
 	private ColorSelectorButton focusButton;
 	JPanel facePanel;
+	private ExpressiveController expressiveController;
 
 	/**
 	 * Create the application.
 	 */
-	public ClientUi(JPanel expressiveView) {
-		initialize(expressiveView);
+	public ClientUi(ExpressiveController expressiveController) {
+		this.expressiveController = expressiveController;
+		initialize(expressiveController.expressiveView);
 		this.setBounds(new Rectangle(0, 0, 710, 432));
 		this.getContentPane().setLayout(null);
 		FaceClient.create(this);
@@ -168,6 +171,8 @@ public class ClientUi extends JFrame {
 	}
 
 	public void setFaceData(FaceData faceData) {
-		// @TODO information has been pushed from the server.
+		System.out.println("++++++++ClientUI Vlaue" + faceData.toString());
+		this.expressiveController.updateGraph(faceData.getFaceExpressionData());
+		// @TODO information has been pushed from the serve
 	}
 }
