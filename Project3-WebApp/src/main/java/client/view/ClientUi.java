@@ -33,11 +33,11 @@ import javax.websocket.ContainerProvider;
 import javax.websocket.DeploymentException;
 import javax.websocket.WebSocketContainer;
 
-import client.ClientSocket;
 import client.constants.ClientConstants;
 import client.controller.ChangeColorController;
 import client.controller.ExpressiveController;
 import client.controller.MenuItemController;
+import client.service.ClientSocket;
 import utility.FaceData;
 
 

@@ -1,5 +1,5 @@
 
-package client;
+package client.service;
 
 import java.io.IOException;
 

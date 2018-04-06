@@ -4,7 +4,7 @@ package client.controller;
 
 
 
-import client.ClientSocket;
+import client.service.ClientSocket;
 import client.view.ClientUi;
 
 public class ClientController {

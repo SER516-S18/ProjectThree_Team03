@@ -47,6 +47,14 @@ public class FaceAffectiveData {
 		this.excitementLongTerm = excitementLongTerm;
 	} 
 	
+	public void reset(){
+		 meditation = 0.0;
+		 engagementBoredom = 0.0;
+		 excitementShortTerm = 0.0;
+		 frustation = 0.0;
+		 excitementLongTerm = 0.0;
+			
+	}
 	public String toString() {
 		return "FaceAffectiveData{" +
 				"meditation=" + meditation +

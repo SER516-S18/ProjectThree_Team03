@@ -136,6 +136,21 @@ public class FaceExpressionData {
 		this.eyeReset = eyeReset;
 	}
 
+	public void reset(){
+		raiseBrow = 0.0;
+		furrowBrow = 0.0;
+		smile = 0.0;
+		clench = 0.0;
+		smirkLeft = 0.0;
+		smirkRight = 0.0;
+		laugh = 0.0;
+		blink = 0.0;
+		winkLeft = 0.0;
+		winkRight = 0.0;
+		lookLeft = 0.0;
+		lookRight = 0.0;
+		eyeReset = false;
+	}
 	public double[] fetchVectors() {
 		// Double[] p = new Double[13];
 		// p[1] = getRaiseBrow();
