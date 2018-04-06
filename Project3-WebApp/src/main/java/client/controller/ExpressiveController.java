@@ -87,6 +87,63 @@ public class ExpressiveController {
 		g11 = new DisplayGraph();
 
 	}
+	//
+	// Thread t = new Thread(new Runnable() {
+	//
+	// public void run() {
+	// while (true) {
+	//
+	// facePanel.add(f, BorderLayout.CENTER);
+	// facePanel.repaint();
+	// double[] v = u();
+	// g.addValues(v[1]);
+	// g1.addValues(v[2]);
+	// g2.addValues(v[3]);
+	// g3.addValues(v[4]);
+	// g4.addValues(v[5]);
+	// g5.addValues(v[6]);
+	// g6.addValues(v[7]);
+	// g7.addValues(v[8]);
+	// g8.addValues(v[9]);
+	// g9.addValues(v[10]);
+	// g10.addValues(v[11]);
+	// g11.addValues(v[12]);
+	//
+	// blinkGraph.add(g, BorderLayout.CENTER);
+	// blinkGraph.repaint();
+	// rgtWinkGraph.add(g1, BorderLayout.CENTER);
+	// rgtWinkGraph.repaint();
+	// lftWinkGraph.add(g2, BorderLayout.CENTER);
+	// lftWinkGraph.repaint();
+	// lookrgtGraph.add(g3, BorderLayout.CENTER);
+	// lookrgtGraph.repaint();
+	// looklftGraph.add(g4, BorderLayout.CENTER);
+	// looklftGraph.repaint();
+	// furrowGraph.add(g5, BorderLayout.CENTER);
+	// furrowGraph.repaint();
+	// raiseGraph.add(g6, BorderLayout.CENTER);
+	// raiseGraph.repaint();
+	// smileGraph.add(g7, BorderLayout.CENTER);
+	// smileGraph.repaint();
+	// clenchGraph.add(g8, BorderLayout.CENTER);
+	// clenchGraph.repaint();
+	// lftSmirkGraph.add(g9, BorderLayout.CENTER);
+	// lftSmirkGraph.repaint();
+	// rgtSmirkGraph.add(g10, BorderLayout.CENTER);
+	// rgtSmirkGraph.repaint();
+	// laughGraph.add(g11, BorderLayout.CENTER);
+	// laughGraph.repaint();
+	// try {
+	// Thread.sleep(1000);
+	// } catch (InterruptedException e) {
+	// e.printStackTrace();
+	//
+	// }
+	// }
+	// }
+	//
+	// });
+	// t.start();
 
 	public void updateGraph(FaceExpressionData fed) {
 		facePanel.add(f, BorderLayout.CENTER);
