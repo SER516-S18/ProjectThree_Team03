@@ -37,7 +37,7 @@ public class DetectionPanel extends JPanel {
 	public FaceAffectiveData faceAffectiveData;
 	public JLabel lblEmoState,lblTime,lblSeconds,lblUpperFace,lblEye,lblLowerface,lblAffective,lblEmoengineLogs;
 	public SpringLayout springpanel;
-
+	public ServerConsole sc;
 	public DetectionController detectionController;
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
@@ -97,8 +97,9 @@ public class DetectionPanel extends JPanel {
 		spinnerAffective.setModel(new SpinnerListModel(
 				new String[] { "0", "0.1", "0.2", "0.3", "0.4", "0.5", "0.6", "0.7", "0.8", "0.9", "1.0" }));
 		
-		ServerConsole sc = ServerConsole.getInstance();
+		sc = ServerConsole.getInstance();
 		sc.setJtextArea(txtAreaEmoLogs);
+		sc.print("Hello");
 		
 		setComponentLayout();
 		addComponent();
