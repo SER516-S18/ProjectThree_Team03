@@ -7,7 +7,11 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
-
+ /**
+  * View for the Expression Section of the client
+  * @SER516 Project3_Team03
+  * @version 1.0
+  */
 @SuppressWarnings("serial")
 public class ExpressiveView extends JPanel{
 	

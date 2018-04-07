@@ -1,5 +1,4 @@
 package client.view;
-
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -13,6 +12,8 @@ import java.util.List;
 import javax.swing.*;
 
 /**
+ * Class to display the expressions graphs
+ * 
  * @SER516 Project3_Team03
  * @Version 1.0
  */
@@ -29,7 +30,7 @@ public class DisplayGraph extends JPanel {
     private Stroke oldStroke1;
 
     /**
-     * Splits the values from the received array based on their indices and stores them in separate arrays.
+     * Adds the received values to an arraylist.
      * @param rvalues contains values received from server after a certain time interval.
      */
     public void addValues(double rvalues){
@@ -61,8 +62,6 @@ public class DisplayGraph extends JPanel {
        //calls to functions to plots the lines.
        oldStroke1 = plotLines(g2, oldStroke1, graphPoints1, Color.GREEN);
 
-
-       
        //calls to functions to plots the points.
        plotPoints(g2, oldStroke1, graphPoints1, Color.GREEN);
        

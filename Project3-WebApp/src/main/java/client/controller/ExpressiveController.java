@@ -11,6 +11,12 @@ import client.view.ExpressiveView;
 import client.view.FacePaint;
 import utility.FaceExpressionData;
 
+/**
+ * Controller for the Expressions View
+ * 
+ * @SER516 Project3_Team03
+ * @version 1.0
+ */
 public class ExpressiveController {
 	public ExpressiveView expressiveView;
 	JPanel facePanel;
@@ -103,6 +109,7 @@ public class ExpressiveController {
 		rgtSmirkGraph.add(g10, BorderLayout.CENTER);
 		laughGraph.add(g11, BorderLayout.CENTER);
 		
+		//Thread to make sure that the graphs keeps plotting the points.
 		t = new Thread(new Runnable() {
 			public void run() {
 				while (flag) {
@@ -143,6 +150,10 @@ public class ExpressiveController {
 
 	}
 	
+	/**
+	 * Updates the Face and the Graph on the basis of received values
+	 * @param fed Contains the latest expression values
+	 */
 	public void updateGraph(FaceExpressionData fed) {
 		flag = false;
 		v = fed.fetchVectors();

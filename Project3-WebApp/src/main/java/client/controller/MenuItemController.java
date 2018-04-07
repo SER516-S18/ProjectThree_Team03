@@ -10,10 +10,17 @@ import javax.swing.JTextField;
 import client.service.FaceClient;
 import server.ServerMainHandler;
 
+/**
+ * Controller for the menu items
+ * 
+ * @SER516 Project3_Team03
+ * @Version 1.0
+ */
 public class MenuItemController {
 
 	public MenuItemController(JMenuItem serverConnect, JMenuItem serverConsole, JMenuItem exit) {
-
+		
+		//Connects to the server.
 		serverConnect.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JTextField host = new JTextField();
@@ -35,13 +42,15 @@ public class MenuItemController {
 				}
 			}
 		});
-
+		
+		//Closes the application.
 		exit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.exit(0);
 			}
 		});
-
+		
+		//Starts the server.
 		serverConsole.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ServerMainHandler.startServerGUI();

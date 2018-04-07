@@ -45,19 +45,12 @@ public class FacePaint extends JPanel {
 	
 	/**
 	 * Draws the face with the required expressions
-	 * 
-	 * @param g
-	 *            Is a Graphics Object
-	 * @param v
-	 *            Contains the array of expressions
-	 * @param x
-	 *            Specifies the starting point on the x axis
-	 * @param y
-	 *            Specifies the starting point on the y axis
-	 * @param height
-	 *            Specifies the height of the window
-	 * @param width
-	 *            Specifies the width of the window
+	 * @param g Is a Graphics Object
+	 * @param v Contains the array of expressions
+	 * @param x Specifies the starting point on the x axis
+	 * @param y Specifies the starting point on the y axis
+	 * @param height Specifies the height of the window
+	 * @param width Specifies the width of the window
 	 */
 	public void drawFace(Graphics g, int x, int y, int height, int width) {
 		String direction = "Center";
@@ -85,17 +78,11 @@ public class FacePaint extends JPanel {
 	}
 
 	/**
-	 * Finds the scaling factors so as to scale the face according to the
-	 * background.
-	 * 
-	 * @param x
-	 *            Specifies the starting point on the x axis
-	 * @param y
-	 *            Specifies the starting point on the y axis
-	 * @param height
-	 *            Specifies the height of the window
-	 * @param width
-	 *            Specifies the width of the window
+	 * Finds the scaling factors so as to scale the face according to the background.
+	 * @param x Specifies the starting point on the x axis
+	 * @param y Specifies the starting point on the y axis
+	 * @param height Specifies the height of the window
+	 * @param width Specifies the width of the window
 	 */
 	public void calc_scaleFactors(int x, int y, int height, int width) {
 		x_factor = width / 100.0;
@@ -114,9 +101,7 @@ public class FacePaint extends JPanel {
 
 	/**
 	 * Makes outer structure of the face
-	 * 
-	 * @param g
-	 *            Is a Graphics Object
+	 * @param g Is a Graphics Object
 	 */
 	public void make_head(Graphics g) {
 		createCircle(g, 50, 50, head_radiusval);
@@ -124,13 +109,9 @@ public class FacePaint extends JPanel {
 
 	/**
 	 * Makes the eyes along with the various expressions needed
-	 * 
-	 * @param g
-	 *            Is a Graphics Object
-	 * @param bl
-	 *            Contains value for blinking of the left eye
-	 * @param br
-	 *            Contains value for blinking of the right eye
+	 * @param g Is a Graphics Object
+	 * @param bl Contains value for blinking of the left eye
+	 * @param br Contains value for blinking of the right eye
 	 */
 	public void make_eye(Graphics g, boolean bl, boolean br) {
 		if (bl == true && br == true) {
@@ -151,15 +132,10 @@ public class FacePaint extends JPanel {
 
 	/**
 	 * Makes the pupils along with the various expressions needed.
-	 * 
-	 * @param g
-	 *            Is a Graphics Object
-	 * @param direction
-	 *            Contains the direction values for looking left or right
-	 * @param bl
-	 *            Contains value for blinking of the left eye
-	 * @param br
-	 *            Contains value for blinking of the right eye
+	 * @param g Is a Graphics Object
+	 * @param direction Contains the direction values for looking left or right
+	 * @param bl Contains value for blinking of the left eye
+	 * @param br Contains value for blinking of the right eye
 	 */
 	public void make_pupil(Graphics g, String direction, boolean bl, boolean br) {
 		double d = 0.5;
@@ -186,13 +162,9 @@ public class FacePaint extends JPanel {
 
 	/**
 	 * Makes the eyebrows along with the various expressions needed.
-	 * 
-	 * @param g
-	 *            Is a Graphics Object
-	 * @param p1
-	 *            Raises the brows according to this input
-	 * @param p2
-	 *            Furrows the brows according to this input
+	 * @param g Is a Graphics Object
+	 * @param p1 Raises the brows according to this input
+	 * @param p2 Furrows the brows according to this input
 	 */
 	public void make_eyebrows(Graphics g, double p1, double p2) {
 		int y1, y2;
@@ -212,9 +184,7 @@ public class FacePaint extends JPanel {
 
 	/**
 	 * Makes the nose.
-	 * 
-	 * @param g
-	 *            Is a Graphics Object
+	 * @param g Is a Graphics Object
 	 */
 	public void make_nose(Graphics g) {
 		createLine(g, nose_apex_x, nose_apex_y, nose_apex_x - (nose_width / 2), nose_ypos);
@@ -224,19 +194,12 @@ public class FacePaint extends JPanel {
 
 	/**
 	 * Makes the mouth along with the expressions needed.
-	 * 
-	 * @param g
-	 *            Is a Graphics Object
-	 * @param p3
-	 *            Contains input for making the face smile
-	 * @param p4
-	 *            Contains input to make the face clench
-	 * @param p5
-	 *            Contains input for making the face smirk left
-	 * @param p6
-	 *            Contains input for making the face smirk right
-	 * @param p7
-	 *            Contains input for making the face laugh
+	 * @param g Is a Graphics Object
+	 * @param p3 Contains input for making the face smile
+	 * @param p4 Contains input to make the face clench
+	 * @param p5 Contains input for making the face smirk left
+	 * @param p6 Contains input for making the face smirk right
+	 * @param p7 Contains input for making the face laugh
 	 */
 	public void make_mouth(Graphics g, double p3, double p4, double p5, double p6, double p7) {
 		double x1 = 40;
@@ -279,21 +242,13 @@ public class FacePaint extends JPanel {
 
 	/**
 	 * Used to make the lips
-	 * 
-	 * @param g
-	 *            Is a Graphics Object
-	 * @param x1
-	 *            Contains the starting point of the lips on the horizontal plane
-	 * @param y1
-	 *            Contains the starting point of the lips on the vertical plane
-	 * @param x2
-	 *            Contains the ending point of the lips on the horizontal plane
-	 * @param y2
-	 *            Contains the ending point of the lips on the vertical plane
-	 * @param x3
-	 *            Contains the center point of the lips on the horizontal plane
-	 * @param y3
-	 *            Contains the center point of the lips on the vertical plane
+	 * @param g Is a Graphics Object
+	 * @param x1 Contains the starting point of the lips on the horizontal plane
+	 * @param y1 Contains the starting point of the lips on the vertical plane
+	 * @param x2 Contains the ending point of the lips on the horizontal plane
+	 * @param y2 Contains the ending point of the lips on the vertical plane
+	 * @param x3 Contains the center point of the lips on the horizontal plane
+	 * @param y3 Contains the center point of the lips on the vertical plane
 	 */
 	public void make_lips(Graphics g, double x1, double y1, double x2, double y2, double x3, double y3) {
 		int i, new_x, new_y, last_x, last_y;
@@ -320,15 +275,10 @@ public class FacePaint extends JPanel {
 
 	/**
 	 * Creates a hollow Circle
-	 * 
-	 * @param g
-	 *            Is a Graphics Object
-	 * @param x
-	 *            Contains the x position with respect to the background
-	 * @param y
-	 *            Contains the y position with respect to the background
-	 * @param radius
-	 *            Contains the radius of the circle to be drawn
+	 * @param g Is a Graphics Object
+	 * @param x Contains the x position with respect to the background
+	 * @param y Contains the y position with respect to the background
+	 * @param radius Contains the radius of the circle to be drawn
 	 */
 	public void createCircle(Graphics g, int x, int y, int radius) {
 		g.drawOval(scale_x(x - radius) + x_origin, scale_y(y - radius) + y_origin, scale_x(radius * 2),
@@ -337,17 +287,11 @@ public class FacePaint extends JPanel {
 
 	/**
 	 * Creates a hollow Oval
-	 * 
-	 * @param g
-	 *            Is a Graphics Object
-	 * @param x
-	 *            Contains the x position with respect to the background
-	 * @param y
-	 *            Contains the y position with respect to the background
-	 * @param height
-	 *            Contains the height to the oval to be drawn
-	 * @param width
-	 *            Contains the width of the oval to be drawn
+	 * @param g Is a Graphics Object
+	 * @param x Contains the x position with respect to the background
+	 * @param y Contains the y position with respect to the background
+	 * @param height Contains the height to the oval to be drawn
+	 * @param width Contains the width of the oval to be drawn
 	 */
 	public void createOval(Graphics g, int x, int y, int height, int width) {
 		g.drawOval(scale_x(x - width) + x_origin, scale_y(y - height) + y_origin, scale_x(width * 2),
@@ -357,16 +301,11 @@ public class FacePaint extends JPanel {
 	/**
 	 * Used to fill the hollow Oval
 	 * 
-	 * @param g
-	 *            Is a Graphics Object
-	 * @param x
-	 *            Contains the x position with respect to the background
-	 * @param y
-	 *            Contains the y position with respect to the background
-	 * @param height
-	 *            Contains the height till which the oval to be filled
-	 * @param width
-	 *            Contains the width till which the oval to be filled
+	 * @param g Is a Graphics Object
+	 * @param x Contains the x position with respect to the background
+	 * @param y Contains the y position with respect to the background
+	 * @param height Contains the height till which the oval to be filled
+	 * @param width Contains the width till which the oval to be filled
 	 */
 	public void fillOval(Graphics g, int x, int y, int height, int width) {
 		g.fillOval(scale_x(x - width) + x_origin, scale_y(y - height) + y_origin, scale_x(width * 2),
@@ -375,17 +314,11 @@ public class FacePaint extends JPanel {
 
 	/**
 	 * Used to create a line
-	 * 
-	 * @param g
-	 *            Is a Graphics Object
-	 * @param x1
-	 *            Contains the horizontal starting position of the line
-	 * @param y1
-	 *            Contains the vertical starting position of the line
-	 * @param x2
-	 *            Contains the horizontal ending position of the line
-	 * @param y2
-	 *            Contains the vertical ending position of the line
+	 * @param g Is a Graphics Object
+	 * @param x1 Contains the horizontal starting position of the line
+	 * @param y1 Contains the vertical starting position of the line
+	 * @param x2 Contains the horizontal ending position of the line
+	 * @param y2 Contains the vertical ending position of the line
 	 */
 	public void createLine(Graphics g, int x1, int y1, int x2, int y2) {
 		g.drawLine(scale_x(x1) + x_origin, scale_y(y1) + x_origin, scale_x(x2) + x_origin, scale_y(y2) + x_origin);
@@ -393,9 +326,7 @@ public class FacePaint extends JPanel {
 
 	/**
 	 * Used to scale the input according to the horizontal factor of the background
-	 * 
-	 * @param x
-	 *            Parameter needed to be scaled
+	 * @param x Parameter needed to be scaled
 	 * @return Scaled parameter
 	 */
 	public int scale_x(int x) {
@@ -404,9 +335,7 @@ public class FacePaint extends JPanel {
 
 	/**
 	 * Used to scale the input according to the vertical factor of the background
-	 * 
-	 * @param y
-	 *            Parameter needed to be scaled
+	 * @param y Parameter needed to be scaled
 	 * @return Scaled parameter
 	 */
 	public int scale_y(int y) {

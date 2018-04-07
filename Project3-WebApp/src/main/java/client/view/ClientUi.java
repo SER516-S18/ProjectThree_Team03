@@ -26,7 +26,6 @@ import utility.FaceData;
  * @SER516 Project3_Team03
  * @Version 1.0
  */
-
 @SuppressWarnings("serial")
 public class ClientUi extends JFrame {
 
@@ -40,7 +39,8 @@ public class ClientUi extends JFrame {
 	private ExpressiveController expressiveController;
 
 	/**
-	 * Create the application.
+	 * Creates the application
+	 * @param expressiveController Contains the expression controller object
 	 */
 	public ClientUi(ExpressiveController expressiveController) {
 		this.expressiveController = expressiveController;
@@ -169,10 +169,12 @@ public class ClientUi extends JFrame {
 
 		new MenuItemController(serverConnect, serverConsole, exitMenuItem);
 	}
-
+	
+	/**
+	 * Sets the received expression data values.
+	 * @param faceData contains the received expression data
+	 */
 	public void setFaceData(FaceData faceData) {
-		System.out.println("++++++++ClientUI Vlaue" + faceData.toString());
 		this.expressiveController.updateGraph(faceData.getFaceExpressionData());
-		// @TODO information has been pushed from the serve
 	}
 }

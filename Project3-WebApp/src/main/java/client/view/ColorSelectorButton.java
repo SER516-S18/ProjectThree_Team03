@@ -12,11 +12,13 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JColorChooser;
 
+/**
+ * View Class to create the color selector buttons
+ * 
+ * @SER516 Project3_Team03
+ * @version 1.0
+ */
 public class ColorSelectorButton extends JButton {
-
-    /**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private Color current;
 	private String name;
@@ -33,24 +35,43 @@ public class ColorSelectorButton extends JButton {
             }
         });
     }
-
+    
+    /**
+     * Returns the selected color
+     * @return contains the selected color
+     */
     public Color getSelectedColor() {
         return current;
     }
 
+    /**
+     * Sets the color
+     * @param newColor contains the new selected color
+     */
     public void setSelectedColor(Color newColor) {
         setSelectedColor(newColor, true);
     }
     
+    /**
+     * Returns the name of the button
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * Sets the name of the button
+     */
     public void setName(String newName) {
     		name=newName;
     		
     }
-
+    
+    /**
+     * Overloaded function to select the color
+     * @param newColor contains the new selected color
+     * @param notify Contains true or false based on change of color
+     */
     public void setSelectedColor(Color newColor, boolean notify) {
 
         if (newColor == null) return;
@@ -76,7 +97,14 @@ public class ColorSelectorButton extends JButton {
     public void addColorChangedListener(ColorChangedListener toAdd) {
         listeners.add(toAdd);
     }
-
+    
+    /**
+     * Adds the image of the color on the button
+     * @param main Contains the color
+     * @param width	Contains the width of the required image
+     * @param height Contains the height of the required image
+     * @return Contains the resultant icon
+     */
     public static  ImageIcon createIcon(Color main, int width, int height) {
         BufferedImage image = new BufferedImage(width, height, java.awt.image.BufferedImage.TYPE_INT_RGB);
         Graphics2D graphics = image.createGraphics();
