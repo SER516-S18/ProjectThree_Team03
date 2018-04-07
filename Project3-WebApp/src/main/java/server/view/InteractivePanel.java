@@ -45,7 +45,7 @@ public class InteractivePanel extends JPanel {
 		lblSec.setBounds(436, 26, 35, 16);
 		this.add(lblSec);
 
-		chckbxAutoReset = new JCheckBox("Auto reset");
+		chckbxAutoReset = new JCheckBox("Auto Resend");
 		chckbxAutoReset.setBounds(219, 58, 113, 25);
 		this.add(chckbxAutoReset);
 
