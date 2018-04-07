@@ -3,10 +3,12 @@ package server.controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JRadioButton;
 import javax.swing.JSpinner;
+import javax.swing.JTextArea;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
@@ -29,11 +31,13 @@ public class DetectionController {
 	public JRadioButton radioEyeActive;
 	public FaceAffectiveData faceAffectiveData;
 	public FaceExpressionData faceExpressionData;
+	public JTextArea txtAreaEmoLogs;
+	public JButton btnClearLogs;
 
 	public DetectionController(final JSpinner spinnerUpperFace, final JSpinner spinnerLowerFace,
 			final JSpinner spinnerAffective, final JComboBox comboUpperFace, final JComboBox comboLowerFace,
 			final JComboBox comboAffective, final JComboBox comboEye, final JCheckBox checkEyeBox,
-			final JRadioButton radioEyeActive, FaceAffectiveData faceAffectiveData,
+			final JRadioButton radioEyeActive,final JTextArea txtAreaEmoLogs,final JButton btnClearLogs, FaceAffectiveData faceAffectiveData,
 			FaceExpressionData faceExpressionData) {
 
 		this.faceAffectiveData = faceAffectiveData;
@@ -47,7 +51,9 @@ public class DetectionController {
 		this.comboEye = comboEye;
 		this.radioEyeActive = radioEyeActive;
 		this.chckbxEyeAutoReset = checkEyeBox;
-
+		this.txtAreaEmoLogs = txtAreaEmoLogs;
+		this.btnClearLogs = btnClearLogs;
+		
 		comboUpperFace.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				updateExpressionData();
@@ -99,6 +105,12 @@ public class DetectionController {
 		spinnerAffective.addChangeListener(new ChangeListener() {
 			public void stateChanged(ChangeEvent e) {
 				updateAffectiveData();
+			}
+		});
+		
+		btnClearLogs.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				txtAreaEmoLogs.setText("");
 			}
 		});
 
