@@ -22,13 +22,13 @@ public class ThreadController implements Runnable {
 		while(true){
 			timeElapsed += emointerval;
 			//System.out.println(timeElapsed);
-			dpanel.timeElapsedTextbox.setText(timeElapsed+"");
 			try {
 				th.sleep((long) (1000 * emointerval));
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			dpanel.timeElapsedTextbox.setText(timeElapsed+"");
 			FaceData faceData = dpanel.getDetectionController().createFaceDataInstance();
 			faceData.setTimeElapsed(timeElapsed);
 			FaceServer.put(faceData);
