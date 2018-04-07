@@ -13,9 +13,9 @@ public class ServerMainHandler {
 		emoticon = new EmoticonComposer();
 		emoticon.setVisible(true);
 		emoticon.setResizable(false);
-		FaceData faceData = new FaceData();
-		faceData.setFaceAffectiveData(emoticon.dpanel.faceAffectiveData);
-		faceData.setFaceExpressionData(emoticon.dpanel.faceExpressionData);
+		//FaceData faceData = new FaceData();
+		//faceData.setFaceAffectiveData(emoticon.dpanel.faceAffectiveData);
+		//faceData.setFaceExpressionData(emoticon.dpanel.faceExpressionData);
 
 	}
 

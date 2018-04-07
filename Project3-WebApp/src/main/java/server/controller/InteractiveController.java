@@ -15,8 +15,8 @@ public class InteractiveController {
 	JButton btnSend;
 	JSpinner emoStateInterval;
 	JCheckBox chckbxAuroReset;
-
-	public InteractiveController(JButton btnSend, JSpinner emoStateInterval, JCheckBox chckbxAutoReset,
+	
+	public InteractiveController(final JButton btnSend, final JSpinner emoStateInterval, final JCheckBox chckbxAutoReset,
 			final DetectionPanel dpanel) {
 
 		this.btnSend = btnSend;
@@ -27,8 +27,29 @@ public class InteractiveController {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				FaceServer.put(dpanel.getDetectionController().createFaceDataInstance());
-				System.out.println("Send");
+				
+				
+				if (e.getActionCommand().equals("Send")){
+					if (chckbxAutoReset.isSelected()){
+					btnSend.setText("Stop");
+					emoStateInterval.setEnabled(false);
+					chckbxAutoReset.setEnabled(false);
+					Double interval = (Double)emoStateInterval.getValue();
+					new ThreadController(interval,dpanel);
+					ThreadController.start();
+					
+					}
+					else {
+						FaceServer.put(dpanel.getDetectionController().createFaceDataInstance());
+					}
+					}
+				else {
+					ThreadController.stop();
+					emoStateInterval.setEnabled(true);
+					chckbxAuroReset.setEnabled(true);
+					btnSend.setText("Send");
+				}
+		//		System.out.println("Send");
 
 			}
 		});

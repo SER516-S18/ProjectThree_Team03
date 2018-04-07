@@ -37,7 +37,7 @@ public class InteractivePanel extends JPanel {
 
 		spinnerEmoStateInterval = new JSpinner();
 		spinnerEmoStateInterval
-				.setModel(new SpinnerNumberModel(new Double(0.0), new Double(0.0), null, new Double(0.25)));
+				.setModel(new SpinnerNumberModel(new Double(0.25), new Double(0.25), null, new Double(0.25)));
 		spinnerEmoStateInterval.setBounds(349, 23, 75, 22);
 		this.add(spinnerEmoStateInterval);
 
