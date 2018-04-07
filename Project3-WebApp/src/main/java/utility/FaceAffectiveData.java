@@ -55,6 +55,17 @@ public class FaceAffectiveData {
 		 excitementLongTerm = 0.0;
 			
 	}
+	
+	public double[] fetchVectors() {
+		double[] p = new double[5];
+		p[0] = getMeditation();
+		p[1] = getEngagementBoredom();
+		p[2] = getExcitementShortTerm();
+		p[3] = getFrustation();
+		p[4] = getExcitementLongTerm();
+		return p;
+	}
+	
 	public String toString() {
 		return "FaceAffectiveData{" +
 				"meditation=" + meditation +

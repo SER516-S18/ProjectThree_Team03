@@ -2,6 +2,7 @@ package client.controller;
 
 import java.awt.Color;
 
+import client.constants.ClientConstants;
 import client.view.ColorSelectorButton;
 import client.view.ColorSelectorButton.ColorChangedListener;
 
@@ -16,10 +17,21 @@ public class ChangeColorController {
 		button.addColorChangedListener(new ColorChangedListener() {
 			
 		    public void colorChanged(Color newColor) {
-		            // do something with newColor ...
-		    		System.out.println("New Color is selected!");
-		    		
-		    	
+		    		if(button.getName() == "Meditation"){
+		    			ClientConstants.meditationColor = newColor;
+		    		}
+		    		else if(button.getName() == "Engagement"){
+		    			ClientConstants.engagementColor = newColor;
+		    		}
+		    		else if(button.getName() == "Frustation"){
+		    			ClientConstants.frustationColor = newColor;
+		    		}
+		    		else if(button.getName() == "Excitement Short Term"){
+		    			ClientConstants.excitementstColor = newColor;
+		    		}
+		    		else if(button.getName() == "Excitement Long Term"){
+		    			ClientConstants.excitementltColor = newColor;
+		    		}
 		    }
 		});
 	}

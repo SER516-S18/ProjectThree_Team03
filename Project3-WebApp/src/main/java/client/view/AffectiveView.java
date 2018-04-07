@@ -1,19 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package client.view;
 
-import java.awt.BorderLayout;
+
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-
 import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -23,21 +14,18 @@ import client.constants.ClientConstants;
 import client.controller.ChangeColorController;
 
 /**
- *
- * @author srajangupta
+ * View for the Affective Section of the client
+ * @SER516 Project3_Team03
+ * @Version 1.0
  */
 public class AffectiveView extends JPanel {
-
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = 1L;
-	private ColorSelectorButton interestButton;
+	private ColorSelectorButton meditationButton;
 	private ColorSelectorButton engagementButton;
-	private ColorSelectorButton stressButton;
-	private ColorSelectorButton relaxationButton;
-	private ColorSelectorButton excitementButton;
-	private ColorSelectorButton focusButton;
+	private ColorSelectorButton excitementstButton;
+	private ColorSelectorButton frustationButton;
+	private ColorSelectorButton excitementltButton;
 
 	public AffectiveView(JPanel leftPanel, JPanel affectiveGraph, JPanel colPanel) {
 
@@ -49,16 +37,9 @@ public class AffectiveView extends JPanel {
 
 		affectiveGraph.setBounds(0, 0, 320, 300);
 		affectiveGraph.setBorder(BorderFactory.createLineBorder(Color.black));
-		affectiveGraph.setBackground(new Color(238, 238, 238));
+		affectiveGraph.setBackground(ClientConstants.GRAPHPANEL);
 		leftPanel.add(affectiveGraph);
 
-
-//		perfPanel.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
-//		perfPanel.setBounds(325, 28, 368, 313);
-//		perfPanel.setLayout(null);
-		//this.add(perfPanel);
-
-//		final JPanel colPanel = new JPanel();
 		colPanel.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		colPanel.setBounds(350, 30, 343, 311);
 
@@ -71,50 +52,38 @@ public class AffectiveView extends JPanel {
 		gridBagConstraints.gridx = 1;
 		gridBagConstraints.gridy = 1;
 
-		interestButton = new ColorSelectorButton(Color.WHITE, ClientConstants.INTEREST);
-		new ChangeColorController(interestButton);
-		colPanel.add(interestButton, gridBagConstraints);
+		meditationButton = new ColorSelectorButton(ClientConstants.meditationColor, ClientConstants.MEDITATION);
+		new ChangeColorController(meditationButton);
+		colPanel.add(meditationButton, gridBagConstraints);
 
 		gridBagConstraints.gridx = 2;
 		gridBagConstraints.gridy = 1;
 
-		engagementButton = new ColorSelectorButton(Color.black, ClientConstants.ENGAGEMENT);
+		engagementButton = new ColorSelectorButton(ClientConstants.engagementColor, ClientConstants.ENGAGEMENT);
 		new ChangeColorController(engagementButton);
-
 		colPanel.add(engagementButton, gridBagConstraints);
 
 		gridBagConstraints.gridx = 3;
 		gridBagConstraints.gridy = 1;
 
-		stressButton = new ColorSelectorButton(Color.black, ClientConstants.STRESS);
-
-		new ChangeColorController(engagementButton);
-		colPanel.add(stressButton, gridBagConstraints);
+		excitementstButton = new ColorSelectorButton(ClientConstants.excitementstColor, ClientConstants.EXCITEMENTST);
+		new ChangeColorController(excitementstButton);
+		colPanel.add(excitementstButton, gridBagConstraints);
 
 		gridBagConstraints.gridx = 2;
 		gridBagConstraints.gridy = 2;
 
-		relaxationButton = new ColorSelectorButton(Color.black, ClientConstants.RELAXATION);
-
-		new ChangeColorController(relaxationButton);
-
-		colPanel.add(relaxationButton, gridBagConstraints);
+		frustationButton = new ColorSelectorButton(ClientConstants.frustationColor, ClientConstants.FRUSTATION);
+		new ChangeColorController(frustationButton);
+		colPanel.add(frustationButton, gridBagConstraints);
 
 		gridBagConstraints.gridx = 3;
 		gridBagConstraints.gridy = 2;
 
-		excitementButton = new ColorSelectorButton(Color.black, ClientConstants.EXCITEMENT);
+		excitementltButton = new ColorSelectorButton(ClientConstants.excitementltColor, ClientConstants.EXCITEMENTLT);
+		new ChangeColorController(excitementltButton);
+		colPanel.add(excitementltButton, gridBagConstraints);
 
-		new ChangeColorController(excitementButton);
-		colPanel.add(excitementButton, gridBagConstraints);
-
-		gridBagConstraints.gridx = 2;
-		gridBagConstraints.gridy = 2;
-
-		focusButton = new ColorSelectorButton(Color.black, ClientConstants.FOCUS);
-
-		new ChangeColorController(focusButton);
-		colPanel.add(focusButton, gridBagConstraints);
 
 		this.add(colPanel);
 

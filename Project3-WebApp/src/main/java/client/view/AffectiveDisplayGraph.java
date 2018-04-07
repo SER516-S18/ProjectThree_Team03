@@ -12,7 +12,10 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.*;
 
+import client.constants.ClientConstants;
+
 /**
+ * Class to display the expressions graphs
  * @SER516 Project3_Team03
  * @Version 1.0
  */
@@ -23,39 +26,35 @@ public class AffectiveDisplayGraph extends JPanel {
     private static final int BORDER_GAP = 0;
     private static final Stroke GRAPH_STROKE = new BasicStroke(1f);
     private static final int GRAPH_POINT_WIDTH = 1;
-    private static final int MAX_LIST_SIZE = 20;
+    private static int MAX_LIST_SIZE = 30;
     private List<Double> list1 = new ArrayList<Double>();
     private List<Double> list2 = new ArrayList<Double>();
     private List<Double> list3 = new ArrayList<Double>();
     private List<Double> list4 = new ArrayList<Double>();
     private List<Double> list5 = new ArrayList<Double>();
-    private List<Double> list6 = new ArrayList<Double>();
     
     private List<Point> graphPoints1;
     private List<Point> graphPoints2;
     private List<Point> graphPoints3;
     private List<Point> graphPoints4;
     private List<Point> graphPoints5;
-    private List<Point> graphPoints6;
     
     private Stroke oldStroke1;
     private Stroke oldStroke2;
     private Stroke oldStroke3;
     private Stroke oldStroke4;
     private Stroke oldStroke5;
-    private Stroke oldStroke6;
 
     /**
      * Splits the values from the received array based on their indices and stores them in separate arrays.
      * @param rvalues contains values received from server after a certain time interval.
      */
-    public void addValues(List<Double> rvalues){
-        list1.add(rvalues.get(0));
-        list2.add(rvalues.get(1));
-        list3.add(rvalues.get(2));
-        list4.add(rvalues.get(3));
-        list5.add(rvalues.get(4));
-        list6.add(rvalues.get(5));
+    public void addValues(double[] rvalues){
+        list1.add(rvalues[0]);
+        list2.add(rvalues[1]);
+        list3.add(rvalues[2]);
+        list4.add(rvalues[3]);
+        list5.add(rvalues[4]);
     }
     
     /**
@@ -68,7 +67,6 @@ public class AffectiveDisplayGraph extends JPanel {
        graphPoints3 = new ArrayList<Point>();
        graphPoints4 = new ArrayList<Point>();
        graphPoints5 = new ArrayList<Point>();
-       graphPoints6 = new ArrayList<Point>();
        
        super.paintComponent(g);
        Graphics2D g1 = (Graphics2D)g;
@@ -81,13 +79,10 @@ public class AffectiveDisplayGraph extends JPanel {
        g4.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
        Graphics2D g5 = (Graphics2D)g;
        g5.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-       Graphics2D g6 = (Graphics2D)g;
-       g6.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
-       //creates x and y axes scales.
-       double xScale = ((double) getWidth() - 2 * BORDER_GAP) / (10);
-       //double yScale = ((double) getHeight() - 2 * BORDER_GAP) / (100 - 1);
-       double yScale = (double) getHeight() - 2;
+       //creates x and y axes scales.       
+       double xScale = ((double) getWidth() - 2 * BORDER_GAP) / (list1.size() + MAX_LIST_SIZE - 1);
+       double yScale = (double) getHeight() - 1;
        
        //calls to functions to create coordinate values from the provided lists.
        createPoints(graphPoints1, list1, xScale, yScale);
@@ -95,28 +90,25 @@ public class AffectiveDisplayGraph extends JPanel {
        createPoints(graphPoints3, list3, xScale, yScale);
        createPoints(graphPoints4, list4, xScale, yScale);
        createPoints(graphPoints5, list5, xScale, yScale);
-       createPoints(graphPoints6, list6, xScale, yScale);
        
        //creates x and y axes.
        g2.drawLine(BORDER_GAP, getHeight() - BORDER_GAP, BORDER_GAP, BORDER_GAP);
        g2.drawLine(BORDER_GAP, getHeight() - BORDER_GAP, getWidth() - BORDER_GAP, getHeight() - BORDER_GAP);
 
        //calls to functions to plots the lines.
-       oldStroke1 = plotLines(g1, oldStroke1, graphPoints1, Color.GREEN);
-       oldStroke2 = plotLines(g2, oldStroke2, graphPoints2, Color.RED);
-       oldStroke3 = plotLines(g3, oldStroke3,graphPoints3, Color.BLUE);
-       oldStroke4 = plotLines(g4, oldStroke4,graphPoints4, Color.MAGENTA);
-       oldStroke5 = plotLines(g5, oldStroke5,graphPoints5, Color.YELLOW);
-       oldStroke6 = plotLines(g6, oldStroke6,graphPoints6, Color.CYAN);
+       oldStroke1 = plotLines(g1, oldStroke1, graphPoints1, ClientConstants.meditationColor);
+       oldStroke2 = plotLines(g2, oldStroke2, graphPoints2, ClientConstants.engagementColor);
+       oldStroke3 = plotLines(g3, oldStroke3,graphPoints3, ClientConstants.excitementstColor);
+       oldStroke4 = plotLines(g4, oldStroke4,graphPoints4, ClientConstants.frustationColor);
+       oldStroke5 = plotLines(g5, oldStroke5,graphPoints5, ClientConstants.excitementltColor);
 
        
        //calls to functions to plots the points.
-       plotPoints(g1, oldStroke1, graphPoints1, Color.GREEN);
-       plotPoints(g2, oldStroke2, graphPoints2, Color.RED);
-       plotPoints(g3, oldStroke3, graphPoints3, Color.BLUE);
-       plotPoints(g4, oldStroke4, graphPoints4, Color.MAGENTA);
-       plotPoints(g5, oldStroke5, graphPoints5, Color.YELLOW);
-       plotPoints(g6, oldStroke6, graphPoints6, Color.CYAN);
+       plotPoints(g1, oldStroke1, graphPoints1, ClientConstants.meditationColor);
+       plotPoints(g2, oldStroke2, graphPoints2, ClientConstants.engagementColor);
+       plotPoints(g3, oldStroke3, graphPoints3, ClientConstants.excitementstColor);
+       plotPoints(g4, oldStroke4, graphPoints4, ClientConstants.frustationColor);
+       plotPoints(g5, oldStroke5, graphPoints5, ClientConstants.excitementltColor);
 
        
     }
@@ -139,7 +131,7 @@ public class AffectiveDisplayGraph extends JPanel {
     public void createPoints(List<Point> p, List<Double> l, double xScale, double yScale){
       for (int i = 0; i < l.size(); i++) {
             int x1 = (int) (i * xScale + BORDER_GAP);
-            int y1 = (int) ((1- l.get(i)) * yScale  + BORDER_GAP);
+            int y1 = (int) ((1 - l.get(i)) * yScale  + BORDER_GAP);
             p.add(new Point(x1, y1));
          }
     }

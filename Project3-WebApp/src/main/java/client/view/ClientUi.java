@@ -1,22 +1,12 @@
 package client.view;
 
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.GridBagConstraints;
-import java.awt.Insets;
 import java.awt.Rectangle;
-
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
-import javax.swing.border.LineBorder;
-
-import client.constants.ClientConstants;
-import client.controller.ChangeColorController;
 import client.controller.AffectiveController;
 import client.controller.ExpressiveController;
 import client.controller.MenuItemController;
@@ -91,11 +81,11 @@ public class ClientUi extends JFrame {
 	}
 	
 	/**
-	 * Sets the received expression data values.
+	 * Sets the different data values.
 	 * @param faceData contains the received expression data
 	 */
 	public void setFaceData(FaceData faceData) {
 		this.expressiveController.updateGraph(faceData.getFaceExpressionData());
-	        this.affectiveController.updateGraph(faceData.getFaceExpressionData());
+	    this.affectiveController.updateGraph(faceData.getFaceAffectiveData());
 	}
 }

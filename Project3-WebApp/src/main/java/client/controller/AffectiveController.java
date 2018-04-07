@@ -1,19 +1,18 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package client.controller;
 
 import client.view.AffectiveDisplayGraph;
 import client.view.AffectiveView;
 import java.awt.BorderLayout;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
 import javax.swing.JPanel;
-import utility.FaceExpressionData;
+import utility.FaceAffectiveData;
 
+
+/**
+ * Controller for the Affective View
+ * 
+ * @SER516 Project3_Team03
+ * @version 1.0
+ */
 public class AffectiveController {
 
 	public AffectiveView affectiveView;
@@ -21,6 +20,9 @@ public class AffectiveController {
 	private JPanel affectiveGraph;
 	JPanel perfPanel;
 	private AffectiveDisplayGraph g1;
+	boolean flag=true;
+	Thread t;
+	double v[]= new double[6];
 
 	public AffectiveController() {
 		leftPanel = new JPanel();
@@ -29,23 +31,39 @@ public class AffectiveController {
 
 		affectiveView = new AffectiveView(leftPanel, affectiveGraph, perfPanel);
 		g1 = new AffectiveDisplayGraph();
+		affectiveGraph.add(g1, BorderLayout.CENTER);
+		
+		t = new Thread(new Runnable() {
+			public void run() {
+				while (flag) {
+					g1.addValues(v);
+					affectiveGraph.repaint();
+					try {
+				 		Thread.sleep(1000);
+				 	} catch (InterruptedException e) {
+				 		e.printStackTrace();
+				 	}
+				}
+			}
+		
+		 });
 
 	}
-
-	public void updateGraph(FaceExpressionData fed) {
-
-		List<Double> affectiveData = new ArrayList<Double>();
-		double pick;
-		Random rand = new Random();
-		for (int j = 0; j < 6; j++) {
-			pick = rand.nextDouble();
-			affectiveData.add(pick);
+	
+	/**
+	 * Updates Graph on the basis of received values
+	 * @param fed Contains the latest affective values
+	 */
+	public void updateGraph(FaceAffectiveData fed) {
+		flag = false;
+		v = fed.fetchVectors();
+		g1.addValues(v);
+		flag = true;
+		try{
+			t.start();
+		}catch(Exception e){
+			
 		}
-		g1.addValues(affectiveData);
-
-		affectiveGraph.add(g1, BorderLayout.CENTER);
-		affectiveGraph.repaint();
-
 	}
 
 }

@@ -24,7 +24,7 @@ public class DisplayGraph extends JPanel {
     private static final int BORDER_GAP = 0;
     private static final Stroke GRAPH_STROKE = new BasicStroke(1f);
     private static final int GRAPH_POINT_WIDTH = 1;
-    private static final int MAX_LIST_SIZE = 20;
+    private static final int MAX_LIST_SIZE = 30;
     private List<Double> list1 = new ArrayList<Double>();
     private List<Point> graphPoints1;
     private Stroke oldStroke1;
@@ -59,10 +59,10 @@ public class DisplayGraph extends JPanel {
        g2.drawLine(BORDER_GAP, getHeight() - BORDER_GAP, getWidth() - BORDER_GAP, getHeight() - BORDER_GAP);
 
        //calls to functions to plots the lines.
-       oldStroke1 = plotLines(g2, oldStroke1, graphPoints1, Color.GREEN);
+       oldStroke1 = plotLines(g2, oldStroke1, graphPoints1, Color.BLUE);
 
        //calls to functions to plots the points.
-       plotPoints(g2, oldStroke1, graphPoints1, Color.GREEN);
+       plotPoints(g2, oldStroke1, graphPoints1, Color.BLUE);
        
     }
 
