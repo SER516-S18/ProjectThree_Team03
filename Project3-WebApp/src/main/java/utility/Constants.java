@@ -2,9 +2,8 @@ package utility;
 import java.awt.Color;
 import java.awt.Font;
 
-
 /**
-* Constants holds systemwide values that are shared by both the server
+* Constants holds system-wide values that are shared by both the server
 * and the client. Most typically these are values for colors, fonts, etc.
 * in order to ensure consistency between the two applications.
 */

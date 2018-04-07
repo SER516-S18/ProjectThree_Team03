@@ -6,9 +6,17 @@ import java.awt.event.ActionListener;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 
+/**
+ * Controller for the menu items
+ * 
+ * @SER516 Project3_Team03
+ * @Version 1.0
+ */
 public class MenuController {
 
 	public MenuController(JMenuItem about, JMenuItem exit ){
+		
+		//Gives information about the application
 		about.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent arg0) {
@@ -17,6 +25,7 @@ public class MenuController {
 			}
 		});
 		
+		//CLoses the application
 		exit.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {

@@ -53,7 +53,7 @@ public class MenuItemController {
 		//Starts the server.
 		serverConsole.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ServerMainHandler.startServerGUI();
+				new ServerMainHandler();
 			}
 		});
 	}

@@ -2,9 +2,14 @@ package server.controller;
 
 import server.service.FaceServer;
 import server.view.DetectionPanel;
-import server.view.EmoticonComposer;
 import utility.FaceData;
 
+/**
+ * Controller for sending multiple values in certain time durations
+ * 
+ * @SER516 Project3_Team03
+ * @Version 1.0
+ */
 public class ThreadController implements Runnable {
 
 	static Thread th;
@@ -23,7 +28,7 @@ public class ThreadController implements Runnable {
 			timeElapsed += emointerval;
 			//System.out.println(timeElapsed);
 			try {
-				th.sleep((long) (1000 * emointerval));
+				Thread.sleep((long) (1000 * emointerval));
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -34,11 +39,18 @@ public class ThreadController implements Runnable {
 			FaceServer.put(faceData);
 		}
 	}
-
+	
+	/**
+	 * Stops the thread
+	 */
+	@SuppressWarnings("deprecation")
 	public static void stop() {
 		th.stop();
 	}
 	
+	/**
+	 * Starts the thread
+	 */
 	public static void start(){
 	
 		th.start();

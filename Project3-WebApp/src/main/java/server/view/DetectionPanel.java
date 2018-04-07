@@ -18,8 +18,14 @@ import server.controller.DetectionController;
 import utility.FaceAffectiveData;
 import utility.FaceExpressionData;
 
+/**
+ * View for the Detection Panel.
+ * @SER516 Project3_Team03
+ * @Version 1.0
+ */
+@SuppressWarnings("rawtypes")
 public class DetectionPanel extends JPanel {
-
+	private static final long serialVersionUID = 1L;
 	public JTextField timeElapsedTextbox;
 	public JSpinner spinnerEmoStateInterval, spinnerUpperFace, spinnerLowerFace, spinnerAffective;
 	public JCheckBox chckbxEyeAutoReset;
@@ -33,6 +39,7 @@ public class DetectionPanel extends JPanel {
 
 	public DetectionController detectionController;
 
+	@SuppressWarnings("unchecked")
 	public DetectionPanel() {
 		SpringLayout springpanel = new SpringLayout();
 		this.setLayout(springpanel);

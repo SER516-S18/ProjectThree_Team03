@@ -11,6 +11,12 @@ import javax.swing.SpinnerNumberModel;
 
 import server.controller.InteractiveController;
 
+/**
+ * View for the Interactive Panel
+ * @SER516 Project3_Team03
+ * @Version 1.0
+ */
+@SuppressWarnings("serial")
 public class InteractivePanel extends JPanel {
 
 	JSpinner spinnerEmoStateInterval;
@@ -18,6 +24,7 @@ public class InteractivePanel extends JPanel {
 	JButton btnSend;
 	DetectionPanel dpanel;
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public InteractivePanel(DetectionPanel dpanel) {
 
 		this.dpanel = dpanel;

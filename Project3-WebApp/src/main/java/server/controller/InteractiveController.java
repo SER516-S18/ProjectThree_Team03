@@ -10,6 +10,12 @@ import javax.swing.JSpinner;
 import server.service.FaceServer;
 import server.view.DetectionPanel;
 
+/**
+ * Controller for the interactive section of the server.
+ * 
+ * @SER516 Project3_Team03
+ * @Version 1.0
+ */
 public class InteractiveController {
 
 	JButton btnSend;
@@ -22,7 +28,8 @@ public class InteractiveController {
 		this.btnSend = btnSend;
 		this.emoStateInterval = emoStateInterval;
 		this.chckbxAuroReset = chckbxAutoReset;
-
+		
+		//Sends the selected values to the client.
 		btnSend.addActionListener(new ActionListener() {
 
 			@Override

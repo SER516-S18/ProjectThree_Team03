@@ -13,13 +13,23 @@ import com.google.gson.GsonBuilder;
 
 import utility.FaceData;
 
+/**
+ * Class to establish web-socket connection with client and send the data to the client.
+ * 
+ * @SER516 Project3_Team03
+ * @version 1.0
+ */
 @ServerEndpoint(value = "/faceData")
 public class FaceServer {
 
 	private static Gson gson = null;
 	private static Session session = null;
 	private static Server server = null;
-
+	
+	/**
+	 * Establishes a connection with the client.
+	 * @param port contains the port number for the connection.
+	 */
 	public static void start(int port) {
 		if (FaceServer.gson == null) {
 			FaceServer.gson = new GsonBuilder().create();
@@ -32,7 +42,10 @@ public class FaceServer {
 			e.printStackTrace();
 		}
 	}
-
+	
+	/**
+	 * Stops the connection.
+	 */
 	public static void stop() {
 		try {
 			FaceServer.server.stop();
@@ -40,7 +53,11 @@ public class FaceServer {
 			e.printStackTrace();
 		}
 	}
-
+	
+	/**
+	 * Sends the data to the client.
+	 * @param faceData contains the data values
+	 */
 	public static void put(FaceData faceData) {
 		if (FaceServer.session == null) {
 			System.out.println("No session present.");
@@ -54,7 +71,11 @@ public class FaceServer {
 			e.printStackTrace();
 		}
 	}
-
+	
+	/**
+	 * Checks if a session is already in play
+	 * @param session Contains the session value.
+	 */
 	@OnOpen
 	public void onOpen(Session session) {
 		if (FaceServer.session != null) {
@@ -70,12 +91,22 @@ public class FaceServer {
 		FaceServer.session = session;
 		System.out.println(session.getId() + " has opened a connection");
 	}
-
+	
+	/**
+	 * Executes when a message is sent
+	 * @param message Contains the message that is sent
+	 * @param session Contains the session value
+	 * @throws Exception handles exceptions
+	 */
 	@OnMessage
 	public void onMessage(String message, Session session) throws Exception {
 		System.out.println(message);
 	}
-
+	
+	/**
+	 * Executes when the connection is closed.
+	 * @param session Contains the session value.
+	 */
 	@OnClose
 	public void onClose(Session session) {
 		System.out.println("Session " + session.getId() + " has ended");

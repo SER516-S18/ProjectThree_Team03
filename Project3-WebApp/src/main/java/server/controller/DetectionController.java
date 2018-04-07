@@ -14,6 +14,13 @@ import utility.FaceAffectiveData;
 import utility.FaceData;
 import utility.FaceExpressionData;
 
+/**
+ * Controller for the detection section of the server
+ * 
+ * @SER516 Project3_Team03
+ * @Version 1.0
+ */
+@SuppressWarnings("rawtypes")
 public class DetectionController {
 
 	public JSpinner spinnerEmoStateInterval, spinnerUpperFace, spinnerLowerFace, spinnerAffective;
@@ -43,69 +50,63 @@ public class DetectionController {
 
 		comboUpperFace.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// System.out.println(comboUpperFace.getSelectedItem());
 				updateExpressionData();
 			}
 		});
 
 		comboLowerFace.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// System.out.println(comboLowerFace.getSelectedItem());
 				updateExpressionData();
 			}
 		});
 
 		comboAffective.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// System.out.println(comboAffective.getSelectedItem());
 				updateAffectiveData();
 			}
 		});
 
 		comboEye.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// System.out.println(comboEye.getSelectedItem());
 				updateExpressionData();
 			}
 		});
 
 		chckbxEyeAutoReset.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// System.out.println(chckbxEyeAutoReset.isSelected());
 				updateExpressionData();
 			}
 		});
 
 		radioEyeActive.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// System.out.println(radioEyeActive.isSelected());
 				updateExpressionData();
 			}
 		});
 
 		spinnerUpperFace.addChangeListener(new ChangeListener() {
 			public void stateChanged(ChangeEvent e) {
-				// System.out.println(spinnerUpperFace.getValue());
 				updateExpressionData();
 			}
 		});
 
 		spinnerLowerFace.addChangeListener(new ChangeListener() {
 			public void stateChanged(ChangeEvent e) {
-				// System.out.println(spinnerLowerFace.getValue());
 				updateExpressionData();
 			}
 		});
 
 		spinnerAffective.addChangeListener(new ChangeListener() {
 			public void stateChanged(ChangeEvent e) {
-				// System.out.println(spinnerAffective.getValue());
 				updateAffectiveData();
 			}
 		});
 
 	}
-
+	
+	/**
+	 * Updates the expression data based on the selected spinner values.
+	 */
 	public void updateExpressionData() {
 
 		faceExpressionData.reset();
@@ -171,10 +172,11 @@ public class DetectionController {
 		if (eyeAutoReset) {
 			faceExpressionData.setEyeReset(true);
 		}
-		// System.out.println(faceExpressionData.toString());
-		//createFaceDataInstance();
 	}
-
+	
+	/**
+	 * Updates the affective data based on the selected spinner values.
+	 */
 	public void updateAffectiveData() {
 
 		faceAffectiveData.reset();
@@ -199,17 +201,16 @@ public class DetectionController {
 			faceAffectiveData.setExcitementLongTerm(affectiveValue);
 			break;
 		}
-		// System.out.println(faceAffectiveData.toString());
-		//createFaceDataInstance();
 	}
-
+	
+	/**
+	 * Passes on the latest data to the model classes.
+	 * @return returns the combined expression and affective data.
+	 */
 	public FaceData createFaceDataInstance() {
 		FaceData faceData = new FaceData();
 		faceData.setFaceAffectiveData(faceAffectiveData);
 		faceData.setFaceExpressionData(faceExpressionData);
-		// JSONObject faceDataJson = new JSONObject(faceData);
-		// String jsonResponse = faceDataJson.toString();
-		// System.out.println(jsonResponse);
 		return faceData;
 	}
 }

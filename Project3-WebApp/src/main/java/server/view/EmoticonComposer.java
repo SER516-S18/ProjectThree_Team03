@@ -16,6 +16,12 @@ import javax.swing.border.MatteBorder;
 
 import server.controller.MenuController;
 
+/**
+ * View for the Server.
+ * @SER516 Project3_Team03
+ * @Version 1.0
+ */
+@SuppressWarnings("serial")
 public class EmoticonComposer extends JFrame {
 
 	private JMenuBar menuBar;
@@ -35,7 +41,6 @@ public class EmoticonComposer extends JFrame {
 			UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
 		} catch (Exception e) {
 		}
-
 		initialize();
 	}
 
@@ -88,75 +93,4 @@ public class EmoticonComposer extends JFrame {
 		new MenuController(mntmAbout, mntmQuit);
 
 	}
-
-	/*
-	 * public FaceData getInputs() { FaceExpressionData faceExpressionData = new
-	 * FaceExpressionData(); FaceAffectiveData faceAffectiveData = new
-	 * FaceAffectiveData(); FaceData faceData = new FaceData();
-	 * 
-	 * String upperFace = (String) comboUpperFace.getSelectedItem(); Double
-	 * upperFaceValue = Double.parseDouble((String) spinnerUpperFace.getValue());
-	 * 
-	 * // System.out.println("UpperFace: " + upperFace); //
-	 * System.out.println("Upperface value: "+upperFaceValue);
-	 * 
-	 * switch (upperFace.toString()) { case "Raise Brow":
-	 * faceExpressionData.setRaiseBrow(upperFaceValue); break; case "Furrow Brow":
-	 * faceExpressionData.setFurrowBrow(upperFaceValue); break; }
-	 * 
-	 * String lowerFace = (String) comboLowerFace.getSelectedItem(); Double
-	 * lowerFaceValue = Double.parseDouble((String) spinnerLowerFace.getValue());
-	 * 
-	 * // System.out.println("LowerFace: " + lowerFace ); //
-	 * System.out.println("LowerFace Value: "+ lowerFaceValue);
-	 * 
-	 * switch (lowerFace.toString()) { case "Smile":
-	 * faceExpressionData.setSmile(lowerFaceValue); break; case "Clench":
-	 * faceExpressionData.setClench(lowerFaceValue); break; case "Smirk Left":
-	 * faceExpressionData.setSmirkLeft(lowerFaceValue); break; case "Smirk Right":
-	 * faceExpressionData.setSmirkRight(lowerFaceValue); break; case "Laugh":
-	 * faceExpressionData.setLaugh(lowerFaceValue); break; }
-	 * 
-	 * boolean eyeActive = rdbtnActive.isSelected();
-	 * 
-	 * // System.out.println("Eye Active: "+eyeActive);
-	 * 
-	 * if (eyeActive) { String eye = (String) comboEye.getSelectedItem(); //
-	 * System.out.println("Eye :"+ eye);
-	 * 
-	 * switch (eye) { case "Blink": faceExpressionData.setBlink(1.0); break; case
-	 * "Wink Left": faceExpressionData.setWinkLeft(1.0); break; case "Wink Right":
-	 * faceExpressionData.setWinkRight(1.0); break; case "Look Left":
-	 * faceExpressionData.setLookLeft(1.0); break; case "Look Right":
-	 * faceExpressionData.setLookRight(1.0); break; } }
-	 * 
-	 * boolean eyeAutoReset = chckbxEyeAutoReset.isSelected(); //
-	 * System.out.println("Eye Auto Reset :"+ eyeAutoReset);
-	 * 
-	 * if (eyeAutoReset) { faceExpressionData.setEyeReset(true); }
-	 * 
-	 * String affective = (String) comboAffective.getSelectedItem(); Double
-	 * affectiveValue = Double.parseDouble((String) spinnerAffective.getValue());
-	 * 
-	 * // System.out.println("Affective: "+affective); //
-	 * System.out.println("Affective Value: "+affectiveValue);
-	 * 
-	 * switch (affective) { case "Meditation":
-	 * faceAffectiveData.setMeditation(affectiveValue); break; case
-	 * "Engagement Boredom": faceAffectiveData.setEngagementBoredom(affectiveValue);
-	 * break; case "Excitement ShortTerm":
-	 * faceAffectiveData.setExcitementShortTerm(affectiveValue); break; case
-	 * "Frustration": faceAffectiveData.setFrustation(affectiveValue); break; case
-	 * "Excitement LongTerm":
-	 * faceAffectiveData.setExcitementLongTerm(affectiveValue); break; }
-	 * 
-	 * faceData.setFaceAffectiveData(faceAffectiveData);
-	 * faceData.setFaceExpressionData(faceExpressionData);
-	 * //System.out.println(faceData.toString());
-	 * 
-	 * return faceData; // System.out.println(faceAffectiveData.toString()); //
-	 * System.out.println(faceExpressionData.toString());
-	 * 
-	 * }
-	 */
 }
