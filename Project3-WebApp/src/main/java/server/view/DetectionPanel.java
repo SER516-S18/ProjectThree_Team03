@@ -105,7 +105,7 @@ public class DetectionPanel extends JPanel {
 		
 		
 		this.detectionController = new DetectionController(spinnerUpperFace, spinnerLowerFace, spinnerAffective,
-				comboUpperFace, comboLowerFace, comboAffective, comboEye, chckbxEyeAutoReset, rdbtnActive,
+				comboUpperFace, comboLowerFace, comboAffective, comboEye, chckbxEyeAutoReset, rdbtnActive,txtAreaEmoLogs,btnClearLogs,
 				faceAffectiveData, faceExpressionData);
 	}
 	
