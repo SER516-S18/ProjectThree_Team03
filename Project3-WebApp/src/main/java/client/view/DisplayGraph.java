@@ -49,7 +49,6 @@ public class DisplayGraph extends JPanel {
 
        //creates x and y axes scales.
        double xScale = ((double) getWidth() - 2 * BORDER_GAP) / (list1.size() + MAX_LIST_SIZE - 1);
-       //double yScale = ((double) getHeight() - 2 * BORDER_GAP) / (MAX_VALUE - 1);
        double yScale = (double) getHeight() - 2;
        
        //calls to functions to create coordinate values from the provided lists.

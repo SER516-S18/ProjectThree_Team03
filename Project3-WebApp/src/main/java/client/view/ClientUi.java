@@ -87,52 +87,39 @@ public class ClientUi extends JFrame {
 
 		gridBagConstraints.gridx = 1;
 		gridBagConstraints.gridy = 1;
-
-		interestButton = new ColorSelectorButton(Color.WHITE, ClientConstants.INTEREST);
+		interestButton = new ColorSelectorButton(ClientConstants.INTEREST_COLOR, ClientConstants.INTEREST);
 		new ChangeColorController(interestButton);
 		colPanel.add(interestButton, gridBagConstraints);
 
 		gridBagConstraints.gridx = 2;
 		gridBagConstraints.gridy = 1;
-
-		engagementButton = new ColorSelectorButton(Color.black, ClientConstants.ENGAGEMENT);
+		engagementButton = new ColorSelectorButton(ClientConstants.ENGAGEMENT_COLOR, ClientConstants.ENGAGEMENT);
 		new ChangeColorController(engagementButton);
-
 		colPanel.add(engagementButton, gridBagConstraints);
 
 		gridBagConstraints.gridx = 3;
 		gridBagConstraints.gridy = 1;
-
-		stressButton = new ColorSelectorButton(Color.black, ClientConstants.STRESS);
-
+		stressButton = new ColorSelectorButton(ClientConstants.STRESS_COLOR, ClientConstants.STRESS);
 		new ChangeColorController(engagementButton);
 		colPanel.add(stressButton, gridBagConstraints);
 
 		gridBagConstraints.gridx = 2;
 		gridBagConstraints.gridy = 2;
-
-		relaxationButton = new ColorSelectorButton(Color.black, ClientConstants.RELAXATION);
-
+		relaxationButton = new ColorSelectorButton(ClientConstants.RELAXATION_COLOR, ClientConstants.RELAXATION);
 		new ChangeColorController(relaxationButton);
-
 		colPanel.add(relaxationButton, gridBagConstraints);
 
 		gridBagConstraints.gridx = 3;
 		gridBagConstraints.gridy = 2;
-
-		excitementButton = new ColorSelectorButton(Color.black, ClientConstants.EXCITEMENT);
-
+		excitementButton = new ColorSelectorButton(ClientConstants.EXCITEMENT_COLOR, ClientConstants.EXCITEMENT);
 		new ChangeColorController(excitementButton);
 		colPanel.add(excitementButton, gridBagConstraints);
 
 		gridBagConstraints.gridx = 2;
 		gridBagConstraints.gridy = 2;
-
-		focusButton = new ColorSelectorButton(Color.black, ClientConstants.FOCUS);
-
+		focusButton = new ColorSelectorButton(ClientConstants.FOCUS_COLOR, ClientConstants.FOCUS);
 		new ChangeColorController(focusButton);
 		colPanel.add(focusButton, gridBagConstraints);
-
 		affectivePanel.add(colPanel);
 
 		final JLabel perfLabel = new JLabel("    Performance Matrix");
