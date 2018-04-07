@@ -25,20 +25,8 @@ public class DisplayGraph extends JPanel {
     private static final int GRAPH_POINT_WIDTH = 1;
     private static final int MAX_LIST_SIZE = 20;
     private List<Double> list1 = new ArrayList<Double>();
-   /* private List<Integer> list2 = new ArrayList<Integer>();
-    private List<Integer> list3 = new ArrayList<Integer>();
-    private List<Integer> list4 = new ArrayList<Integer>();
-    private List<Integer> list5 = new ArrayList<Integer>(); */
     private List<Point> graphPoints1;
-//    private List<Point> graphPoints2;
-//    private List<Point> graphPoints3;
-//    private List<Point> graphPoints4;
-//    private List<Point> graphPoints5;
     private Stroke oldStroke1;
-//    private Stroke oldStroke2;
-//    private Stroke oldStroke3;
-//    private Stroke oldStroke4;
-//    private Stroke oldStroke5;
 
     /**
      * Splits the values from the received array based on their indices and stores them in separate arrays.
@@ -54,21 +42,9 @@ public class DisplayGraph extends JPanel {
     @Override
     protected void paintComponent(Graphics g) {
        graphPoints1 = new ArrayList<Point>();
-       /*graphPoints2 = new ArrayList<Point>();
-       graphPoints3 = new ArrayList<Point>();
-       graphPoints4 = new ArrayList<Point>();
-       graphPoints5 = new ArrayList<Point>();*/
        super.paintComponent(g);
        Graphics2D g2 = (Graphics2D)g;
        g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-       /*Graphics2D g3 = (Graphics2D)g;
-       g3.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-       Graphics2D g4 = (Graphics2D)g;
-       g4.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-       Graphics2D g5 = (Graphics2D)g;
-       g5.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-       Graphics2D g6 = (Graphics2D)g;
-       g6.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);*/
 
        //creates x and y axes scales.
        double xScale = ((double) getWidth() - 2 * BORDER_GAP) / (list1.size() + MAX_LIST_SIZE - 1);
@@ -77,10 +53,6 @@ public class DisplayGraph extends JPanel {
        
        //calls to functions to create coordinate values from the provided lists.
        createPoints(graphPoints1, list1, xScale, yScale);
-      /* createPoints(graphPoints2, list2, xScale, yScale);
-       createPoints(graphPoints3, list3, xScale, yScale);
-       createPoints(graphPoints4, list4, xScale, yScale);
-       createPoints(graphPoints5, list5, xScale, yScale);*/
        
        //creates x and y axes.
        g2.drawLine(BORDER_GAP, getHeight() - BORDER_GAP, BORDER_GAP, BORDER_GAP);
@@ -88,19 +60,11 @@ public class DisplayGraph extends JPanel {
 
        //calls to functions to plots the lines.
        oldStroke1 = plotLines(g2, oldStroke1, graphPoints1, Color.GREEN);
-      /* oldStroke2 = plotLines(g3, oldStroke2, graphPoints2, Color.RED);
-       oldStroke3 = plotLines(g4, oldStroke3,graphPoints3, Color.BLUE);
-       oldStroke4 = plotLines(g5, oldStroke4,graphPoints4, Color.MAGENTA);
-       oldStroke5 = plotLines(g6, oldStroke5,graphPoints5, Color.YELLOW);*/
+
 
        
        //calls to functions to plots the points.
        plotPoints(g2, oldStroke1, graphPoints1, Color.GREEN);
-     /*plotPoints(g3, oldStroke2, graphPoints2, Color.RED);
-       plotPoints(g4, oldStroke3, graphPoints3, Color.BLUE);
-       plotPoints(g5, oldStroke4, graphPoints4, Color.MAGENTA);
-       plotPoints(g6, oldStroke5, graphPoints5, Color.YELLOW);*/
-
        
     }
 
