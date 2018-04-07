@@ -9,10 +9,12 @@ import client.view.ClientUi;
 public class ClientController {
 	ClientUi clientui;
 	ExpressiveController expressiveController;
+	AffectiveController affectiveController;
 
 	public ClientController() {
 		expressiveController = new ExpressiveController();
-		clientui = new ClientUi(expressiveController);
+		affectiveController = new AffectiveController();
+		clientui = new ClientUi(expressiveController, affectiveController);
 		clientui.setVisible(true);
 
 	}
