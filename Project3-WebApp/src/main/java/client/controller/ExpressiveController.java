@@ -40,6 +40,9 @@ public class ExpressiveController {
 	private DisplayGraph g9;
 	private DisplayGraph g10;
 	private DisplayGraph g11;
+	Thread t;
+	double v[]= new double[13];
+	boolean flag=true;
 
 	public ExpressiveController() {
 		facePanel = new JPanel();
@@ -71,7 +74,7 @@ public class ExpressiveController {
 		graphLabel.setFont(new Font("Tahoma", Font.BOLD, 12));
 		graphLabel.setBounds(336, 0, 357, 29);
 		expressiveView.add(graphLabel);
-
+		
 		f = new FacePaint();
 		g = new DisplayGraph();
 		g1 = new DisplayGraph();
@@ -85,108 +88,83 @@ public class ExpressiveController {
 		g9 = new DisplayGraph();
 		g10 = new DisplayGraph();
 		g11 = new DisplayGraph();
+		
+		facePanel.add(f, BorderLayout.CENTER);
+		blinkGraph.add(g, BorderLayout.CENTER);
+		rgtWinkGraph.add(g1, BorderLayout.CENTER);
+		lftWinkGraph.add(g2, BorderLayout.CENTER);
+		lookrgtGraph.add(g3, BorderLayout.CENTER);
+		looklftGraph.add(g4, BorderLayout.CENTER);
+		furrowGraph.add(g5, BorderLayout.CENTER);
+		raiseGraph.add(g6, BorderLayout.CENTER);
+		smileGraph.add(g7, BorderLayout.CENTER);
+		clenchGraph.add(g8, BorderLayout.CENTER);
+		lftSmirkGraph.add(g9, BorderLayout.CENTER);
+		rgtSmirkGraph.add(g10, BorderLayout.CENTER);
+		laughGraph.add(g11, BorderLayout.CENTER);
+		
+		t = new Thread(new Runnable() {
+			public void run() {
+				while (flag) {
+					g.addValues(v[8]);
+					g1.addValues(v[10]);
+					g2.addValues(v[9]);
+					g3.addValues(v[12]);
+					g4.addValues(v[11]);
+					g5.addValues(v[2]);
+					g6.addValues(v[1]);
+					g7.addValues(v[3]);
+					g8.addValues(v[4]);
+					g9.addValues(v[5]);
+					g10.addValues(v[6]);
+					g11.addValues(v[7]);
+					facePanel.repaint();
+					blinkGraph.repaint();
+					rgtWinkGraph.repaint();
+					lftWinkGraph.repaint();
+					lookrgtGraph.repaint();
+					looklftGraph.repaint();
+					furrowGraph.repaint();
+					raiseGraph.repaint();
+					smileGraph.repaint();
+					clenchGraph.repaint();
+					lftSmirkGraph.repaint();
+					rgtSmirkGraph.repaint();
+					laughGraph.repaint();
+					try {
+				 		Thread.sleep(1000);
+				 	} catch (InterruptedException e) {
+				 		e.printStackTrace();
+				 	}
+				}
+			}
+		
+		 });
 
 	}
-	//
-	// Thread t = new Thread(new Runnable() {
-	//
-	// public void run() {
-	// while (true) {
-	//
-	// facePanel.add(f, BorderLayout.CENTER);
-	// facePanel.repaint();
-	// double[] v = u();
-	// g.addValues(v[1]);
-	// g1.addValues(v[2]);
-	// g2.addValues(v[3]);
-	// g3.addValues(v[4]);
-	// g4.addValues(v[5]);
-	// g5.addValues(v[6]);
-	// g6.addValues(v[7]);
-	// g7.addValues(v[8]);
-	// g8.addValues(v[9]);
-	// g9.addValues(v[10]);
-	// g10.addValues(v[11]);
-	// g11.addValues(v[12]);
-	//
-	// blinkGraph.add(g, BorderLayout.CENTER);
-	// blinkGraph.repaint();
-	// rgtWinkGraph.add(g1, BorderLayout.CENTER);
-	// rgtWinkGraph.repaint();
-	// lftWinkGraph.add(g2, BorderLayout.CENTER);
-	// lftWinkGraph.repaint();
-	// lookrgtGraph.add(g3, BorderLayout.CENTER);
-	// lookrgtGraph.repaint();
-	// looklftGraph.add(g4, BorderLayout.CENTER);
-	// looklftGraph.repaint();
-	// furrowGraph.add(g5, BorderLayout.CENTER);
-	// furrowGraph.repaint();
-	// raiseGraph.add(g6, BorderLayout.CENTER);
-	// raiseGraph.repaint();
-	// smileGraph.add(g7, BorderLayout.CENTER);
-	// smileGraph.repaint();
-	// clenchGraph.add(g8, BorderLayout.CENTER);
-	// clenchGraph.repaint();
-	// lftSmirkGraph.add(g9, BorderLayout.CENTER);
-	// lftSmirkGraph.repaint();
-	// rgtSmirkGraph.add(g10, BorderLayout.CENTER);
-	// rgtSmirkGraph.repaint();
-	// laughGraph.add(g11, BorderLayout.CENTER);
-	// laughGraph.repaint();
-	// try {
-	// Thread.sleep(1000);
-	// } catch (InterruptedException e) {
-	// e.printStackTrace();
-	//
-	// }
-	// }
-	// }
-	//
-	// });
-	// t.start();
-
+	
 	public void updateGraph(FaceExpressionData fed) {
-		facePanel.add(f, BorderLayout.CENTER);
-		facePanel.repaint();
-		double[] v = fed.fetchVectors();
-		g.addValues(v[1]);
-		g1.addValues(v[2]);
-		g2.addValues(v[3]);
-		g3.addValues(v[4]);
-		g4.addValues(v[5]);
-		g5.addValues(v[6]);
-		g6.addValues(v[7]);
-		g7.addValues(v[8]);
-		g8.addValues(v[9]);
-		g9.addValues(v[10]);
-		g10.addValues(v[11]);
-		g11.addValues(v[12]);
-
-		blinkGraph.add(g, BorderLayout.CENTER);
-		blinkGraph.repaint();
-		rgtWinkGraph.add(g1, BorderLayout.CENTER);
-		rgtWinkGraph.repaint();
-		lftWinkGraph.add(g2, BorderLayout.CENTER);
-		lftWinkGraph.repaint();
-		lookrgtGraph.add(g3, BorderLayout.CENTER);
-		lookrgtGraph.repaint();
-		looklftGraph.add(g4, BorderLayout.CENTER);
-		looklftGraph.repaint();
-		furrowGraph.add(g5, BorderLayout.CENTER);
-		furrowGraph.repaint();
-		raiseGraph.add(g6, BorderLayout.CENTER);
-		raiseGraph.repaint();
-		smileGraph.add(g7, BorderLayout.CENTER);
-		smileGraph.repaint();
-		clenchGraph.add(g8, BorderLayout.CENTER);
-		clenchGraph.repaint();
-		lftSmirkGraph.add(g9, BorderLayout.CENTER);
-		lftSmirkGraph.repaint();
-		rgtSmirkGraph.add(g10, BorderLayout.CENTER);
-		rgtSmirkGraph.repaint();
-		laughGraph.add(g11, BorderLayout.CENTER);
-		laughGraph.repaint();
-
+		flag = false;
+		v = fed.fetchVectors();
+		f.changeVector(v);
+		g.addValues(v[8]);
+		g1.addValues(v[10]);
+		g2.addValues(v[9]);
+		g3.addValues(v[12]);
+		g4.addValues(v[11]);
+		g5.addValues(v[2]);
+		g6.addValues(v[1]);
+		g7.addValues(v[3]);
+		g8.addValues(v[4]);
+		g9.addValues(v[5]);
+		g10.addValues(v[6]);
+		g11.addValues(v[7]);
+		flag = true;
+		try{
+			t.start();
+		}catch(Exception e){
+			
+		}				
 	}
 
 }

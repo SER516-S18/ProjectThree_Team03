@@ -17,7 +17,9 @@ public class MenuItemController {
 		serverConnect.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JTextField host = new JTextField();
+				host.setText("localhost");
 				JTextField port = new JTextField();
+				port.setText("8000");
 
 				Object[] fields = { "Host Name", host, "Port", port };
 				int input = JOptionPane.showConfirmDialog(null, fields, "Connect To Server",

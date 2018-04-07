@@ -18,7 +18,7 @@ import javax.swing.*;
  */
 public class DisplayGraph extends JPanel {
     private static final long serialVersionUID = 1L;
-//    private static final int WIDTH = 255;
+	private static final int WIDTH = 255;
     private static final int HEIGHT = 20;
     private static final int BORDER_GAP = 0;
     private static final Stroke GRAPH_STROKE = new BasicStroke(1f);

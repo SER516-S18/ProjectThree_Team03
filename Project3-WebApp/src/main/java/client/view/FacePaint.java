@@ -5,8 +5,6 @@ import java.awt.Graphics;
 
 import javax.swing.JPanel;
 
-import utility.FaceExpressionData;
-
 /**
  * Class to draw a face and represent the facial expressions.
  * 
@@ -35,7 +33,16 @@ public class FacePaint extends JPanel {
 	private static final int nose_width = 8;
 	private double x_factor, y_factor;
 	private int x_origin, y_origin;
-
+	double[] v = new double[13];
+	
+	/**
+	 * Used to change the value of the vector
+	 * @param vector contains new expression values
+	 */
+	public void changeVector(double[] vector){
+		v = vector;
+	}
+	
 	/**
 	 * Draws the face with the required expressions
 	 * 
@@ -53,10 +60,8 @@ public class FacePaint extends JPanel {
 	 *            Specifies the width of the window
 	 */
 	public void drawFace(Graphics g, int x, int y, int height, int width) {
-		FaceExpressionData f = new FaceExpressionData();
-		double[] v = f.fetchVectors();
 		String direction = "Center";
-		boolean blinkl = true;
+		boolean blinkl = false;
 		boolean blinkr = false;
 		if (v[8] == 1) {
 			blinkl = true;
@@ -167,9 +172,9 @@ public class FacePaint extends JPanel {
 			fillOval(g, eye_left_xpos - (int) ((d - 0.5) * 10), eye_ypos, pupil_size, pupil_size);
 			fillOval(g, eye_right_xpos - (int) ((d - 0.5) * 10), eye_ypos, pupil_size, pupil_size);
 		} else {
-			if (bl == true) {
+			if (bl == true && br == false) {
 				fillOval(g, eye_left_xpos - (int) ((d - 0.5) * 10), eye_ypos, pupil_size, pupil_size);
-			} else if (br == true) {
+			} else if (br == true && bl == false) {
 				fillOval(g, eye_right_xpos + (int) ((d - 0.5) * 10), eye_ypos, pupil_size, pupil_size);
 
 			} else if (bl == false && br == false) {
@@ -190,8 +195,6 @@ public class FacePaint extends JPanel {
 	 *            Furrows the brows according to this input
 	 */
 	public void make_eyebrows(Graphics g, double p1, double p2) {
-		p1 = 0.0;
-		p2 = 0.0;
 		int y1, y2;
 		if (p1 != 0.0) {
 			y1 = eyebrow_y + (int) (p1 * 5);
@@ -243,11 +246,6 @@ public class FacePaint extends JPanel {
 		double x3 = ((x2 - x1) / 2) + x1;
 		double y3 = mouth_ypos;
 		double y3lower = mouth_ypos;
-		p3 = 0.0;
-		p4 = 0.0;
-		p5 = 0.0;
-		p6 = 0.0;
-		p7 = 0.0;
 		if (p3 > 0.0) {
 			x1 = x1 - (p3 * 5);
 			x2 = x2 + (p3 * 5);
@@ -419,7 +417,7 @@ public class FacePaint extends JPanel {
 	 * Paints the desired face.
 	 */
 	public void paintComponent(Graphics g) {
-		drawFace(g, 0, 0, getHeight(), getWidth());
+		drawFace(g,0, 0, getHeight(), getWidth());
 	}
 
 }
