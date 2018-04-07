@@ -172,7 +172,7 @@ public class DetectionController {
 			faceExpressionData.setEyeReset(true);
 		}
 		// System.out.println(faceExpressionData.toString());
-		createFaceDataInstance();
+		//createFaceDataInstance();
 	}
 
 	public void updateAffectiveData() {
@@ -200,7 +200,7 @@ public class DetectionController {
 			break;
 		}
 		// System.out.println(faceAffectiveData.toString());
-		createFaceDataInstance();
+		//createFaceDataInstance();
 	}
 
 	public FaceData createFaceDataInstance() {

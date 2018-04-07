@@ -20,18 +20,18 @@ import utility.FaceExpressionData;
 
 public class DetectionPanel extends JPanel {
 
-	private JTextField timeElapsedTextbox;
-	private JSpinner spinnerEmoStateInterval, spinnerUpperFace, spinnerLowerFace, spinnerAffective;
-	private JCheckBox chckbxEyeAutoReset;
-	private JTextArea txtAreaEmoLogs;
-	private JButton btnSend, btnClearLogs;
-	private JComboBox comboUpperFace, comboLowerFace, comboEye, comboAffective;
-	private JRadioButton rdbtnActive;
+	public JTextField timeElapsedTextbox;
+	public JSpinner spinnerEmoStateInterval, spinnerUpperFace, spinnerLowerFace, spinnerAffective;
+	public JCheckBox chckbxEyeAutoReset;
+	public JTextArea txtAreaEmoLogs;
+	public JButton btnSend, btnClearLogs;
+	public JComboBox comboUpperFace, comboLowerFace, comboEye, comboAffective;
+	public JRadioButton rdbtnActive;
 	public FaceExpressionData faceExpressionData;
 	public FaceAffectiveData faceAffectiveData;
 	public JLabel lblEmoState;
 
-	private DetectionController detectionController;
+	public DetectionController detectionController;
 
 	public DetectionPanel() {
 		SpringLayout springpanel = new SpringLayout();
@@ -53,6 +53,7 @@ public class DetectionPanel extends JPanel {
 
 		timeElapsedTextbox = new JTextField();
 		timeElapsedTextbox.setEditable(false);
+		timeElapsedTextbox.setText("0.0");
 		springpanel.putConstraint(SpringLayout.NORTH, timeElapsedTextbox, 44, SpringLayout.NORTH, this);
 		springpanel.putConstraint(SpringLayout.WEST, timeElapsedTextbox, 74, SpringLayout.WEST, this);
 		this.add(timeElapsedTextbox);
