@@ -3,6 +3,7 @@ package server.controller;
 import server.service.FaceServer;
 import server.view.DetectionPanel;
 import server.view.EmoticonComposer;
+import utility.FaceData;
 
 public class ThreadController implements Runnable {
 
@@ -10,17 +11,15 @@ public class ThreadController implements Runnable {
 	DetectionPanel dpanel ; 
 	Double emointerval = 1.0;
 	Double timeElapsed = 0.0;
-public ThreadController(Double emointerval, DetectionPanel dpanel ){
-		
-	th= new Thread(this);
-	this.dpanel=dpanel;
-	this.emointerval= emointerval;
-	timeElapsed = Double.parseDouble(dpanel.timeElapsedTextbox.getText());
+	public ThreadController(Double emointerval, DetectionPanel dpanel ){	
+		th= new Thread(this);
+		this.dpanel=dpanel;
+		this.emointerval= emointerval;
+		timeElapsed = Double.parseDouble(dpanel.timeElapsedTextbox.getText());
 	}
 	
 	public void run() {
 		while(true){
-			
 			timeElapsed += emointerval;
 			//System.out.println(timeElapsed);
 			dpanel.timeElapsedTextbox.setText(timeElapsed+"");
@@ -30,7 +29,9 @@ public ThreadController(Double emointerval, DetectionPanel dpanel ){
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		FaceServer.put(dpanel.getDetectionController().createFaceDataInstance());
+			FaceData faceData = dpanel.getDetectionController().createFaceDataInstance();
+			faceData.setTimeElapsed(timeElapsed);
+			FaceServer.put(faceData);
 		}
 	}
 

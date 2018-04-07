@@ -31,25 +31,22 @@ public class InteractiveController {
 				
 				if (e.getActionCommand().equals("Send")){
 					if (chckbxAutoReset.isSelected()){
-					btnSend.setText("Stop");
-					emoStateInterval.setEnabled(false);
-					chckbxAutoReset.setEnabled(false);
-					Double interval = (Double)emoStateInterval.getValue();
-					new ThreadController(interval,dpanel);
-					ThreadController.start();
-					
+						btnSend.setText("Stop");
+						emoStateInterval.setEnabled(false);
+						chckbxAutoReset.setEnabled(false);
+						Double interval = (Double)emoStateInterval.getValue();
+						new ThreadController(interval,dpanel);
+						ThreadController.start();
 					}
 					else {
 						FaceServer.put(dpanel.getDetectionController().createFaceDataInstance());
 					}
-					}
-				else {
+				}else {
 					ThreadController.stop();
 					emoStateInterval.setEnabled(true);
 					chckbxAuroReset.setEnabled(true);
 					btnSend.setText("Send");
 				}
-		//		System.out.println("Send");
 
 			}
 		});
