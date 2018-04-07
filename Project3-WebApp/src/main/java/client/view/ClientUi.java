@@ -17,6 +17,7 @@ import javax.swing.border.LineBorder;
 
 import client.constants.ClientConstants;
 import client.controller.ChangeColorController;
+import client.controller.AffectiveController;
 import client.controller.ExpressiveController;
 import client.controller.MenuItemController;
 import client.service.FaceClient;
