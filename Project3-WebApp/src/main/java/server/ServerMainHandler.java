@@ -17,5 +17,7 @@ public class ServerMainHandler {
 		emoticon = new EmoticonComposer();
 		emoticon.setVisible(true);
 		emoticon.setResizable(false);
+		ServerConsole sc = ServerConsole.getInstance();
+		sc.print("Server Started");
 	}
 }

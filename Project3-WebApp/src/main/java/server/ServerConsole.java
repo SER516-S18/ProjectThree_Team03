@@ -1,5 +1,7 @@
 package server;
 
+import javax.swing.JScrollPane;
+
 /**
  * @SER516 Project3_Team03
  * @Version 1.0
@@ -14,6 +16,7 @@ import javax.swing.JTextArea;
 public  class ServerConsole {
 
     protected JTextArea consolePane;
+    protected JScrollPane scrollPane;
     private static ServerConsole instance = null;
     
     /**
@@ -34,6 +37,12 @@ public  class ServerConsole {
     
     public void setJtextArea(JTextArea consolePane) {
         this.consolePane = consolePane;
+        
+    }
+    
+    public void setJScrollPane(JScrollPane scrollPane)
+    {
+    	this.scrollPane = scrollPane;
     }
     
     /*

@@ -7,6 +7,7 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
+import javax.swing.JScrollPane;
 import javax.swing.JSpinner;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
@@ -30,6 +31,7 @@ public class DetectionPanel extends JPanel {
 	public JSpinner spinnerEmoStateInterval, spinnerUpperFace, spinnerLowerFace, spinnerAffective;
 	public JCheckBox chckbxEyeAutoReset;
 	public JTextArea txtAreaEmoLogs;
+	public JScrollPane scroll;
 	public JButton btnSend, btnClearLogs;
 	public JComboBox comboUpperFace, comboLowerFace, comboEye, comboAffective;
 	public JRadioButton rdbtnActive;
@@ -37,7 +39,7 @@ public class DetectionPanel extends JPanel {
 	public FaceAffectiveData faceAffectiveData;
 	public JLabel lblEmoState,lblTime,lblSeconds,lblUpperFace,lblEye,lblLowerface,lblAffective,lblEmoengineLogs;
 	public SpringLayout springpanel;
-
+	public ServerConsole sc;
 	public DetectionController detectionController;
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
@@ -97,8 +99,11 @@ public class DetectionPanel extends JPanel {
 		spinnerAffective.setModel(new SpinnerListModel(
 				new String[] { "0", "0.1", "0.2", "0.3", "0.4", "0.5", "0.6", "0.7", "0.8", "0.9", "1.0" }));
 		
-		ServerConsole sc = ServerConsole.getInstance();
+		sc = ServerConsole.getInstance();
 		sc.setJtextArea(txtAreaEmoLogs);
+				
+		scroll = new JScrollPane(txtAreaEmoLogs);
+		sc.setJScrollPane(scroll);
 		
 		setComponentLayout();
 		addComponent();
@@ -168,10 +173,10 @@ public class DetectionPanel extends JPanel {
 		springpanel.putConstraint(SpringLayout.WEST, lblEmoengineLogs, 25, SpringLayout.WEST, this);
 		springpanel.putConstraint(SpringLayout.EAST, lblEmoengineLogs, 124, SpringLayout.WEST, this);
 		
-		springpanel.putConstraint(SpringLayout.NORTH, txtAreaEmoLogs, 345, SpringLayout.NORTH, this);
-		springpanel.putConstraint(SpringLayout.WEST, txtAreaEmoLogs, 22, SpringLayout.WEST, this);
-		springpanel.putConstraint(SpringLayout.SOUTH, txtAreaEmoLogs, 474, SpringLayout.NORTH, this);
-		springpanel.putConstraint(SpringLayout.EAST, txtAreaEmoLogs, 458, SpringLayout.WEST, this);
+		springpanel.putConstraint(SpringLayout.NORTH, scroll, 345, SpringLayout.NORTH, this);
+		springpanel.putConstraint(SpringLayout.WEST, scroll, 22, SpringLayout.WEST, this);
+		springpanel.putConstraint(SpringLayout.SOUTH, scroll, 474, SpringLayout.NORTH, this);
+		springpanel.putConstraint(SpringLayout.EAST, scroll, 458, SpringLayout.WEST, this);
 		
 		springpanel.putConstraint(SpringLayout.NORTH, btnClearLogs, 487, SpringLayout.NORTH, this);
 		springpanel.putConstraint(SpringLayout.WEST, btnClearLogs, 185, SpringLayout.WEST, this);
@@ -198,7 +203,7 @@ public class DetectionPanel extends JPanel {
 		add(comboAffective);
 		add(lblAffective);
 		add(btnClearLogs);
-		add(txtAreaEmoLogs);
+		add(scroll);
 		add(lblEmoengineLogs);
 		add(chckbxEyeAutoReset);
 		add(rdbtnActive);
