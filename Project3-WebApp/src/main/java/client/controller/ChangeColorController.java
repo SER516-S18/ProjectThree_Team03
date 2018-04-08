@@ -13,7 +13,7 @@ import client.view.ColorSelectorButton.ColorChangedListener;
  * @version 1.0
  */
 public class ChangeColorController {
-	public ChangeColorController(ColorSelectorButton button) {
+	public ChangeColorController(final ColorSelectorButton button) {
 		button.addColorChangedListener(new ColorChangedListener() {
 			
 		    public void colorChanged(Color newColor) {
