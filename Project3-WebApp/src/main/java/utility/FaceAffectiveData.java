@@ -1,5 +1,10 @@
 package utility;
 
+/**
+ * Utility class containing Affective part of the face data.
+ * @SER516 Project3_Team03
+ * @version 1.0
+ */
 public class FaceAffectiveData {
 	
 	Double meditation = 0.0;
@@ -56,6 +61,10 @@ public class FaceAffectiveData {
 			
 	}
 	
+	/**
+	 * Stores various values into an array
+	 * @return contains the affective data array
+	 */
 	public double[] fetchVectors() {
 		double[] p = new double[5];
 		p[0] = getMeditation();
@@ -66,6 +75,9 @@ public class FaceAffectiveData {
 		return p;
 	}
 	
+	/**
+	 * Converts the received affective data into string.
+	 */
 	public String toString() {
 		return "FaceAffectiveData{" +
 				"meditation=" + meditation +

@@ -1,5 +1,10 @@
 package utility;
 
+/**
+ * Utility class containing the face data.
+ * @SER516 Project3_Team03
+ * @version 1.0
+ */
 public class FaceData {
 	FaceExpressionData faceExpressionData;
 	FaceAffectiveData faceAffectiveData;
@@ -23,6 +28,10 @@ public class FaceData {
 	public void setTimeElapsed(Double timeElapsed) {
 		this.timeElapsed = timeElapsed;
 	}
+	
+	/**
+	 * Converts the received affective data into string.
+	 */
 	public String toString() {
 		return "FaceData{" +
 				"faceExpressionData=" + faceExpressionData +

@@ -1,5 +1,10 @@
 package utility;
 
+/**
+ * Utility class containing Expression part of the face data.
+ * @SER516 Project3_Team03
+ * @version 1.0
+ */
 public class FaceExpressionData {
 
 	Double raiseBrow = 0.0;
@@ -151,7 +156,11 @@ public class FaceExpressionData {
 		lookRight = 0.0;
 		eyeReset = false;
 	}
-
+	
+	/**
+	 * Stores various values into an array
+	 * @return contains the affective data array
+	 */
 	public double[] fetchVectors() {
 		double[] p = new double[13];
 		p[1] = getRaiseBrow();
@@ -168,7 +177,10 @@ public class FaceExpressionData {
 		p[12] = getLookRight();
 		return p;
 	}
-
+	
+	/**
+	 * Converts the received affective data into string.
+	 */
 	@Override
 	public String toString() {
 		return "FaceExpressionData{" + "raiseBrow=" + raiseBrow + ", furrowBrow=" + furrowBrow + ", smile=" + smile
