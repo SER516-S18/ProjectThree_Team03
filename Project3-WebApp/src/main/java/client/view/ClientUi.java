@@ -1,6 +1,7 @@
 package client.view;
 
 import java.awt.Rectangle;
+
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;

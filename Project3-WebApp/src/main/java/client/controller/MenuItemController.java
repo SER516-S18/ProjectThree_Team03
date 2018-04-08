@@ -46,7 +46,7 @@ public class MenuItemController {
 		//Closes the application.
 		exit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				System.exit(0);
+				ClientController.close();
 			}
 		});
 		

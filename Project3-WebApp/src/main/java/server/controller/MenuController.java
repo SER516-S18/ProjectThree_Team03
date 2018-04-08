@@ -6,6 +6,8 @@ import java.awt.event.ActionListener;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 
+import server.ServerMainHandler;
+
 /**
  * Controller for the menu items
  * 
@@ -29,8 +31,7 @@ public class MenuController {
 		exit.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				System.exit(1);
+				ServerMainHandler.close();
 			}
 		});
 	}
