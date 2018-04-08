@@ -33,6 +33,7 @@ public class DetectionPanel extends JPanel {
 	public JTextArea txtAreaEmoLogs;
 	public JScrollPane scroll;
 	public JButton btnSend, btnClearLogs;
+	@SuppressWarnings("rawtypes")
 	public JComboBox comboUpperFace, comboLowerFace, comboEye, comboAffective;
 	public JRadioButton rdbtnActive;
 	public FaceExpressionData faceExpressionData;

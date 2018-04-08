@@ -7,6 +7,8 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
+import javax.swing.WindowConstants;
+
 import client.controller.AffectiveController;
 import client.controller.ExpressiveController;
 import client.controller.MenuItemController;
@@ -78,6 +80,7 @@ public class ClientUi extends JFrame {
 		mnFile.add(exitMenuItem);
 
 		new MenuItemController(serverConnect, serverConsole, exitMenuItem);
+		this.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 	}
 	
 	/**
