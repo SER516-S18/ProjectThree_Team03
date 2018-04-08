@@ -11,6 +11,7 @@ import org.glassfish.tyrus.server.Server;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import server.ServerConsole;
 import utility.FaceData;
 
 /**
@@ -25,6 +26,7 @@ public class FaceServer {
 	private static Gson gson = null;
 	private static Session session = null;
 	private static Server server = null;
+	static ServerConsole sc = ServerConsole.getInstance();
 	
 	/**
 	 * Establishes a connection with the client.
@@ -38,6 +40,7 @@ public class FaceServer {
 		try {
 			System.out.println("Server Started");
 			FaceServer.server.start();
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -60,13 +63,13 @@ public class FaceServer {
 	 */
 	public static void put(FaceData faceData) {
 		if (FaceServer.session == null) {
-			System.out.println("No session present.");
+			sc.print("No session present.");
 			return;
 		}
 		try {
 			String message = FaceServer.gson.toJson(faceData, FaceData.class);
 			FaceServer.session.getBasicRemote().sendText(message);
-			System.out.println(message);
+			sc.print(message);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -79,7 +82,7 @@ public class FaceServer {
 	@OnOpen
 	public void onOpen(Session session) {
 		if (FaceServer.session != null) {
-			System.out.println(session.getId() + " has opened a connection, but a connection is already open.");
+			sc.print(session.getId() + " has opened a connection, but a connection is already open.");
 			try {
 				session.getBasicRemote().sendText("Only one client is allowed at a time");
 				session.close();
@@ -89,7 +92,7 @@ public class FaceServer {
 			return;
 		}
 		FaceServer.session = session;
-		System.out.println(session.getId() + " has opened a connection");
+		sc.print(session.getId() + " has opened a connection");
 	}
 	
 	/**
@@ -100,7 +103,7 @@ public class FaceServer {
 	 */
 	@OnMessage
 	public void onMessage(String message, Session session) throws Exception {
-		System.out.println(message);
+		sc.print(message);
 	}
 	
 	/**

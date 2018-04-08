@@ -1,6 +1,8 @@
 package server.view;
 
 import java.awt.Color;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import java.io.File;
 
 import javax.imageio.ImageIO;
@@ -12,9 +14,11 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JTabbedPane;
 import javax.swing.UIManager;
+import javax.swing.WindowConstants;
 import javax.swing.border.MatteBorder;
 
 import server.controller.MenuController;
+import server.service.FaceServer;
 
 /**
  * View for the Server.
@@ -22,7 +26,7 @@ import server.controller.MenuController;
  * @Version 1.0
  */
 @SuppressWarnings("serial")
-public class EmoticonComposer extends JFrame {
+public class EmoticonComposer extends JFrame implements WindowListener {
 
 	private JMenuBar menuBar;
 	private JMenu mnNewMenu;
@@ -91,6 +95,40 @@ public class EmoticonComposer extends JFrame {
 		mnNewMenu.add(mntmQuit);
 
 		new MenuController(mntmAbout, mntmQuit);
+		this.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+		addWindowListener(this);
+		
+	}
 
+	@Override
+	public void windowOpened(WindowEvent e) {		
+	}
+
+	@Override
+	public void windowClosing(WindowEvent e) {		
+	}
+	
+	/**
+	 * Closes the socket when window closes.
+	 */
+	@Override
+	public void windowClosed(WindowEvent e) {
+		FaceServer.stop();
+	}
+
+	@Override
+	public void windowIconified(WindowEvent e) {		
+	}
+
+	@Override
+	public void windowDeiconified(WindowEvent e) {		
+	}
+
+	@Override
+	public void windowActivated(WindowEvent e) {		
+	}
+
+	@Override
+	public void windowDeactivated(WindowEvent e) {		
 	}
 }
