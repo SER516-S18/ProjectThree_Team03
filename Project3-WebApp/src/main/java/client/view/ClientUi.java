@@ -88,6 +88,7 @@ public class ClientUi extends JFrame {
 	 * @param faceData contains the received expression data
 	 */
 	public void setFaceData(FaceData faceData) {
+		this.expressiveController.updateTime(faceData);
 		this.expressiveController.updateGraph(faceData.getFaceExpressionData());
 	    this.affectiveController.updateGraph(faceData.getFaceAffectiveData());
 	}

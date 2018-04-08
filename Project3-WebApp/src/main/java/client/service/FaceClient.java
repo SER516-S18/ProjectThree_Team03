@@ -69,7 +69,6 @@ public class FaceClient {
 	 */
 	@OnMessage
 	public void onMessage(String message, Session session) throws Exception {
-		System.out.println("Received ...." + message);
 		FaceData faceData = gson.fromJson(message, FaceData.class);
 		observer.setFaceData(faceData);
 	}

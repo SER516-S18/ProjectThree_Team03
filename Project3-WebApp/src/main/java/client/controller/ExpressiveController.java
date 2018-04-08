@@ -9,6 +9,7 @@ import javax.swing.JPanel;
 import client.view.DisplayGraph;
 import client.view.ExpressiveView;
 import client.view.FacePaint;
+import utility.FaceData;
 import utility.FaceExpressionData;
 
 /**
@@ -49,6 +50,7 @@ public class ExpressiveController {
 	Thread t;
 	double v[]= new double[13];
 	boolean flag=true;
+	JLabel timeValue;
 
 	public ExpressiveController() {
 		facePanel = new JPanel();
@@ -76,12 +78,12 @@ public class ExpressiveController {
 		faceLabel.setBounds(0, 3, 336, 26);
 		expressiveView.add(faceLabel);
 
-		final JLabel timeLabel = new JLabel("    Timer:");
+		final JLabel timeLabel = new JLabel("    Time:");
 		timeLabel.setFont(new Font("Tahoma", Font.BOLD, 12));
 		timeLabel.setBounds(0, 310, 100, 20);
 		expressiveView.add(timeLabel);
 		
-		final JLabel timeValue = new JLabel("0.0");
+		timeValue = new JLabel("0.0");
 		timeValue.setFont(new Font("Tahoma", Font.BOLD, 12));
 		timeValue.setBounds(120, 310, 30, 20);
 		expressiveView.add(timeValue);
@@ -186,6 +188,14 @@ public class ExpressiveController {
 		}catch(Exception e){
 			
 		}				
+	}
+	
+	/**
+	 * Updates the time value based on the received data.
+	 * @param data Contains all the data values.
+	 */
+	public void updateTime(FaceData data){
+		timeValue.setText(data.getTimeElapsed().toString());
 	}
 
 }
