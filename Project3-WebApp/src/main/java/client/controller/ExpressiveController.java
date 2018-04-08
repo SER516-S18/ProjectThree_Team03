@@ -76,6 +76,16 @@ public class ExpressiveController {
 		faceLabel.setBounds(0, 3, 336, 26);
 		expressiveView.add(faceLabel);
 
+		final JLabel timeLabel = new JLabel("    Timer:");
+		timeLabel.setFont(new Font("Tahoma", Font.BOLD, 12));
+		timeLabel.setBounds(0, 310, 100, 20);
+		expressiveView.add(timeLabel);
+		
+		final JLabel timeValue = new JLabel("0.0");
+		timeValue.setFont(new Font("Tahoma", Font.BOLD, 12));
+		timeValue.setBounds(120, 310, 30, 20);
+		expressiveView.add(timeValue);
+		
 		final JLabel graphLabel = new JLabel("    Graph Charts");
 		graphLabel.setFont(new Font("Tahoma", Font.BOLD, 12));
 		graphLabel.setBounds(336, 0, 357, 29);

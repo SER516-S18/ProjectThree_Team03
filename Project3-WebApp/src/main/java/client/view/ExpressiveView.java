@@ -22,7 +22,7 @@ public class ExpressiveView extends JPanel{
 		
 		this.setLayout(null);
 		facePanel.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
-		facePanel.setBounds(0, 28, 326, 313);
+		facePanel.setBounds(0, 28, 326, 280);
 		this.add(facePanel); 
 		
 		graphPanel.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
