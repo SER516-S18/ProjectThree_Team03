@@ -1,6 +1,9 @@
 # ProjectThree_Team - 03
 #### Project 3 for SER516, an emotiv expression application
 
+## Import Project on Eclipse
+File >> Import >> Maven >> Existing Maven Projects >> Browse to Project Folder
+
 ## Run the Application
 To run the application, either double click on the executable Emoticon.jar file located inside the Project3-WebApp directory or run the following command: 
 
