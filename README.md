@@ -1,6 +1,10 @@
 # ProjectThree_Team - 03
 #### Project 3 for SER516, an emotiv expression application
 
+## Run the Application
+To run the application, either double click on the executable Emoticon.jar file located inside the Project3-WebApp directory or run the following command: 
+
+`java -jar Project3-WebApp/Emoticon.jar`
 ## Team Members
 1. Himanshu Dua (27, hdua1@asu.edu)
 2. Utsav Dusad (28, udusad@asu.edu)
