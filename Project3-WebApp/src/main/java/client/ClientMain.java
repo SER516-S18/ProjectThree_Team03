@@ -9,9 +9,7 @@ import client.controller.ClientController;
  * @SER516 Project3_Team03
  * @Version 1.0
  */
-public class ClientMain {
-	private static ClientController window;
-	
+public class ClientMain {	
 
 	/**
 	 * Launch the client controller.
@@ -20,7 +18,7 @@ public class ClientMain {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					window = new ClientController();
+					new ClientController();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
